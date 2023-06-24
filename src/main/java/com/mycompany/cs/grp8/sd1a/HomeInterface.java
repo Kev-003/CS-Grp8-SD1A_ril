@@ -1,13 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.mycompany.cs.grp8.sd1a;
 
-/**
- *
- * @author User's
- */
+import res.fonts.FontManager;
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.event.ItemEvent;
+import javax.swing.BorderFactory;
+import javax.swing.UIManager;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.FlatDarculaLaf;
+import javax.swing.SwingUtilities;
+import javax.swing.UnsupportedLookAndFeelException;
+
 public class HomeInterface extends javax.swing.JFrame {
 
     /**
@@ -27,16 +38,17 @@ public class HomeInterface extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(224, 225, 225));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 1080, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
 
         pack();
@@ -46,37 +58,38 @@ public class HomeInterface extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HomeInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HomeInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HomeInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HomeInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            UIManager.setLookAndFeel(new FlatLightLaf());
+            UIManager.put("Button.arc", 999);
+        } catch (UnsupportedLookAndFeelException e) {
+            System.out.println(e);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new HomeInterface().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new HomeInterface().setVisible(true);
         });
     }
+    
+    private final Color defaultLightBtnCol = new Color(51, 57, 140);
+    private final Color hoverLightBtnCol = new Color(29, 29, 124);
+    private final Color defaultLightBtnText = new Color(242, 242, 242);
+    private final Color hoverLightBtnText = new Color(242, 242, 242);
+    private final Color hoverLightTextCol = new Color(51, 57, 140);
+    private final Color LightBG = new Color(242, 242, 242);
+    private final Color defaultLightText = new Color(16, 20, 20);
 
+    private final Color defaultDarkBtnCol = new Color(242, 242, 242);
+    private final Color hoverDarkBtnCol = new Color(224, 225, 225);
+    private final Color defaultDarkBtnText = new Color(51, 57, 140);
+    private final Color hoverDarkBtnText = new Color(242, 242, 242);
+    private final Color hoverDarkTextCol = new Color(147,150,191);
+    private final Color DarkBG = new Color(30, 31, 31);
+    private final Color defaultDarkText = new Color(242, 242, 242);
+
+    public boolean darkEnabled = false;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

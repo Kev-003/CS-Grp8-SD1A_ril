@@ -8,27 +8,28 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class FontManager {
-    
-        String[] fontPaths = {
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaUltrabold_2.ttf",
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaBlack.ttf",
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaBlackItalics.ttf",
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaBold.ttf",
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaBoldItalics.ttf",
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaHeavy.ttf",
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaHeavyItalics.ttf",
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaLight.ttf",
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaLightItalics.ttf",
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaMedium.ttf",
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaMediumItalics.ttf",
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaRegular.ttf",
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaRegularItalics.ttf",
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaSemibold.ttf",
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaSemiboldItalics.ttf",
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaThin.ttf",
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaThinItalics.ttf",
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaUltrabold.ttf",
-        "C:\\Users\\User's\\Documents\\NetBeansProjects\\JavaApplication33\\src\\com\\GUI\\Fonts\\QuinoaUltraboldItalics.ttf"
+
+    String[] fontPaths = {
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaUltrabold_2.ttf",
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaBlack.ttf",
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaBlackItalics.ttf",
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaBold.ttf",
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaBoldItalics.ttf",
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaHeavy.ttf",
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaHeavyItalics.ttf",
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaLight.ttf",
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaLightItalics.ttf",
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaMedium.ttf",
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaMediumItalics.ttf",
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaRegular.ttf",
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaRegularItalics.ttf",
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaSemibold.ttf",
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaSemiboldItalics.ttf",
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaThin.ttf",
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaThinItalics.ttf",
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaUltrabold.ttf",
+        "C:\\Users\\Jannette\\Documents\\NetBeansProjects\\CS-Grp8-SD1A_ril\\src\\main\\java\\res\\fonts\\QuinoaUltraboldItalics.ttf"
+
     };
 
     public Font registerFonts(int i) {
@@ -38,10 +39,10 @@ public class FontManager {
             ge.registerFont(font);
             return font;
         } catch (IOException | FontFormatException e) {
-            //Handle exception
+            System.out.println(e);
         }
         return null;
-        
+
     }
 
 }

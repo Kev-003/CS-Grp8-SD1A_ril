@@ -31,7 +31,7 @@
     <build>
         <resources>
             <resource>
-            <directory>src/res/images</directory>
+            <directory>src/res</directory>
             </resource>
         </resources>
     </build>

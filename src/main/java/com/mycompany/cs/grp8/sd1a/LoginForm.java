@@ -42,15 +42,8 @@ public class LoginForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        picColorIcon1 = new javax.swing.JLabel();
         btnDark = new javax.swing.JToggleButton();
-        pnlInfoFields = new javax.swing.JPanel();
-        calBday = new com.toedter.calendar.JDateChooser();
-        lblInfo = new javax.swing.JLabel();
-        txtSurname = new javax.swing.JTextField();
-        lblFirstName = new javax.swing.JLabel();
-        txtFirstName = new javax.swing.JTextField();
-        lblSurname = new javax.swing.JLabel();
-        lblBday = new javax.swing.JLabel();
         pnlSignupFields = new javax.swing.JPanel();
         cbShowHidePass2 = new javax.swing.JCheckBox();
         lblSignup = new javax.swing.JLabel();
@@ -61,6 +54,14 @@ public class LoginForm extends javax.swing.JFrame {
         lblConfirmPass = new javax.swing.JLabel();
         txtConfirmPass = new javax.swing.JPasswordField();
         btnNext = new javax.swing.JButton();
+        pnlInfoFields = new javax.swing.JPanel();
+        calBday = new com.toedter.calendar.JDateChooser();
+        lblInfo = new javax.swing.JLabel();
+        txtSurname = new javax.swing.JTextField();
+        lblFirstName = new javax.swing.JLabel();
+        txtFirstName = new javax.swing.JTextField();
+        lblSurname = new javax.swing.JLabel();
+        lblBday = new javax.swing.JLabel();
         pnlLoginFields = new javax.swing.JPanel();
         cbShowHidePass1 = new javax.swing.JCheckBox();
         lblLogin = new javax.swing.JLabel();
@@ -71,7 +72,6 @@ public class LoginForm extends javax.swing.JFrame {
         lblPass = new javax.swing.JLabel();
         txtPass = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
-        picColorIcon1 = new javax.swing.JLabel();
         picFeatures = new javax.swing.JLabel();
         pnlCoverScreen = new javax.swing.JPanel();
         picWhiteLogo = new javax.swing.JLabel();
@@ -87,6 +87,10 @@ public class LoginForm extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1080, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        picColorIcon1.setVisible(false);
+        picColorIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/ColorLogo.png"))); // NOI18N
+        getContentPane().add(picColorIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
+
         btnDark.setVisible(false);
         btnDark.setBackground(new java.awt.Color(242, 242, 242));
         btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/moon-stars.png"))); // NOI18N
@@ -98,47 +102,6 @@ public class LoginForm extends javax.swing.JFrame {
         });
         getContentPane().add(btnDark, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 40, 40));
 
-        pnlInfoFields.setBackground(new java.awt.Color(242, 242, 242));
-        pnlInfoFields.setVisible(false);
-        pnlInfoFields.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        pnlInfoFields.add(calBday, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 140, 40));
-
-        lblInfo.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,55));
-        lblInfo.setForeground(new java.awt.Color(16, 20, 20));
-        lblInfo.setText("Information");
-        pnlInfoFields.add(lblInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 400, 90));
-
-        txtSurname.setBackground(new Color(0,0,0,0));
-        txtSurname.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
-        txtSurname.setForeground(new java.awt.Color(16, 20, 20));
-        txtSurname.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(153,153,153)));
-        pnlInfoFields.add(txtSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 360, 40));
-
-        lblFirstName.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
-        lblFirstName.setForeground(new java.awt.Color(153, 153, 153));
-        lblFirstName.setText("First Name");
-        pnlInfoFields.add(lblFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
-
-        txtFirstName.setBackground(new Color(0,0,0,0));
-        txtFirstName.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
-        txtFirstName.setForeground(new java.awt.Color(16, 20, 20));
-        txtFirstName.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(153,153,153)));
-        pnlInfoFields.add(txtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 360, 40));
-
-        lblSurname.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
-        lblSurname.setForeground(new java.awt.Color(153, 153, 153));
-        lblSurname.setText("Surname");
-        pnlInfoFields.add(lblSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, -1, -1));
-
-        lblBday.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
-        lblBday.setForeground(new java.awt.Color(153, 153, 153));
-        lblBday.setText("Birth Date");
-        pnlInfoFields.add(lblBday, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, -1, -1));
-
-        getContentPane().add(pnlFeatures, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 540, 720));
-
-        getContentPane().add(pnlInfoFields, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 720));
-
         pnlSignupFields.setBackground(new java.awt.Color(242, 242, 242));
         pnlSignupFields.setVisible(false);
         pnlSignupFields.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -148,47 +111,47 @@ public class LoginForm extends javax.swing.JFrame {
                 cbShowHidePass2ItemStateChanged(evt);
             }
         });
-        pnlSignupFields.add(cbShowHidePass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, -1, -1));
+        pnlSignupFields.add(cbShowHidePass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, -1, -1));
 
         lblSignup.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,55));
         lblSignup.setForeground(new java.awt.Color(16, 20, 20));
         lblSignup.setText("Create Account");
-        pnlSignupFields.add(lblSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 400, 90));
+        pnlSignupFields.add(lblSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 400, 90));
 
         txtNum2.setBackground(new Color(0,0,0,0));
         txtNum2.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
         txtNum2.setForeground(new java.awt.Color(16, 20, 20));
         txtNum2.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(153,153,153)));
-        pnlSignupFields.add(txtNum2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 360, 40));
+        pnlSignupFields.add(txtNum2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 360, 40));
 
         txtCreatePass.setBackground(new Color(0,0,0,0));
         txtCreatePass.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txtCreatePass.setForeground(new java.awt.Color(16, 20, 20));
         txtCreatePass.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(153,153,153)));
         txtCreatePass.setEchoChar('\u00b7');
-        pnlSignupFields.add(txtCreatePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 360, 40));
+        pnlSignupFields.add(txtCreatePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 360, 40));
 
         lblNum1.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
         lblNum1.setForeground(new java.awt.Color(153, 153, 153));
         lblNum1.setText("Account Number");
-        pnlSignupFields.add(lblNum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
+        pnlSignupFields.add(lblNum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
 
         lblCreatePass.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
         lblCreatePass.setForeground(new java.awt.Color(153, 153, 153));
         lblCreatePass.setText("Create Password");
-        pnlSignupFields.add(lblCreatePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, -1, -1));
+        pnlSignupFields.add(lblCreatePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
 
         lblConfirmPass.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
         lblConfirmPass.setForeground(new java.awt.Color(153, 153, 153));
         lblConfirmPass.setText("Confirm Password");
-        pnlSignupFields.add(lblConfirmPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, -1, -1));
+        pnlSignupFields.add(lblConfirmPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, -1, -1));
 
         txtConfirmPass.setBackground(new Color(0,0,0,0));
         txtConfirmPass.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txtConfirmPass.setForeground(new java.awt.Color(16, 20, 20));
         txtConfirmPass.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(153,153,153)));
         txtConfirmPass.setEchoChar('\u00b7');
-        pnlSignupFields.add(txtConfirmPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 360, 40));
+        pnlSignupFields.add(txtConfirmPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 360, 40));
 
         btnNext.setBackground(LightBG);
         btnNext.setFont(new Font(loadFonts(9).getFontName(),Font.PLAIN,25));
@@ -200,12 +163,53 @@ public class LoginForm extends javax.swing.JFrame {
                 btnNextActionPerformed(evt);
             }
         });
-        pnlSignupFields.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 100, 50));
+        pnlSignupFields.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, 100, 50));
 
         pnlFeatures.setVisible(false);
         getContentPane().add(pnlFeatures, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 540, 720));
 
         getContentPane().add(pnlSignupFields, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 720));
+
+        pnlInfoFields.setBackground(new java.awt.Color(242, 242, 242));
+        pnlInfoFields.setVisible(false);
+        pnlInfoFields.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlInfoFields.add(calBday, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 140, 40));
+
+        lblInfo.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,55));
+        lblInfo.setForeground(new java.awt.Color(16, 20, 20));
+        lblInfo.setText("Information");
+        pnlInfoFields.add(lblInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 400, 90));
+
+        txtSurname.setBackground(new Color(0,0,0,0));
+        txtSurname.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
+        txtSurname.setForeground(new java.awt.Color(16, 20, 20));
+        txtSurname.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(153,153,153)));
+        pnlInfoFields.add(txtSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 360, 40));
+
+        lblFirstName.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblFirstName.setForeground(new java.awt.Color(153, 153, 153));
+        lblFirstName.setText("First Name");
+        pnlInfoFields.add(lblFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
+
+        txtFirstName.setBackground(new Color(0,0,0,0));
+        txtFirstName.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
+        txtFirstName.setForeground(new java.awt.Color(16, 20, 20));
+        txtFirstName.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(153,153,153)));
+        pnlInfoFields.add(txtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 360, 40));
+
+        lblSurname.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblSurname.setForeground(new java.awt.Color(153, 153, 153));
+        lblSurname.setText("Surname");
+        pnlInfoFields.add(lblSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
+
+        lblBday.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblBday.setForeground(new java.awt.Color(153, 153, 153));
+        lblBday.setText("Birth Date");
+        pnlInfoFields.add(lblBday, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, -1, -1));
+
+        getContentPane().add(pnlFeatures, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 540, 720));
+
+        getContentPane().add(pnlInfoFields, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 720));
 
         pnlLoginFields.setBackground(new java.awt.Color(242, 242, 242));
         pnlLoginFields.setVisible(false);
@@ -275,9 +279,6 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
         pnlLoginFields.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 540, 130, 40));
-
-        picColorIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/ColorLogo.png"))); // NOI18N
-        pnlLoginFields.add(picColorIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
 
         pnlFeatures.setVisible(false);
         getContentPane().add(pnlFeatures, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 540, 720));
@@ -378,6 +379,8 @@ public class LoginForm extends javax.swing.JFrame {
         picFeatures.setVisible(true);
         pnlFeatures.setVisible(true);
         btnDark.setVisible(true);
+        picColorIcon1.setVisible(true);
+
     }//GEN-LAST:event_btnLoginPromptActionPerformed
 
     private void btnSignupPromptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupPromptActionPerformed
@@ -386,6 +389,7 @@ public class LoginForm extends javax.swing.JFrame {
         picFeatures.setVisible(true);
         pnlFeatures.setVisible(true);
         btnDark.setVisible(true);
+        picColorIcon1.setVisible(true);
     }//GEN-LAST:event_btnSignupPromptActionPerformed
 
     private void cbShowHidePass1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbShowHidePass1ItemStateChanged
@@ -410,6 +414,7 @@ public class LoginForm extends javax.swing.JFrame {
         try {
             btnDark.setBackground(DarkBG);
             btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/moon-stars1.png")));
+            picColorIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/ColorLogo.png")));
             
             darkEnabled = true;
             UIManager.setLookAndFeel(new FlatDarculaLaf());
@@ -446,6 +451,7 @@ public class LoginForm extends javax.swing.JFrame {
         try {
             btnDark.setBackground(LightBG);
             btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/moon-stars.png")));
+            picColorIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/ColorLogo.png")));
             
             darkEnabled = false;
             UIManager.setLookAndFeel(new FlatLightLaf());
