@@ -16,16 +16,29 @@ import javax.swing.UIManager;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.FlatDarculaLaf;
+import java.awt.GridLayout;
 import javax.swing.SwingUtilities;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.border.AbstractBorder;
 
 public class HomeInterface extends javax.swing.JFrame {
-
+    pnlHomeInterface roundPanel;
+    
     /**
      * Creates new form HomeInterface
+     * @param darkEnabled
      */
-    public HomeInterface() {
+    public HomeInterface(boolean darkEnabled) {
+        this.darkEnabled = darkEnabled;
+        UIManager.put("Button.arc", 999);
+        
         initComponents();
+        
+        if (darkEnabled) {
+            setToDark();
+        } else {
+            setToLight();
+        }
     }
 
     /**
@@ -37,40 +50,110 @@ public class HomeInterface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(224, 225, 225));
+        btnDark = new javax.swing.JToggleButton();
+        picLogotype = new javax.swing.JLabel();
+        pnlMain = new javax.swing.JPanel();
+        lblGreetUser = new javax.swing.JLabel();
+        btnDashboard = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1080, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(LightBG);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnDark.setBackground(new java.awt.Color(242, 242, 242));
+        btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/moon-stars.png"))); // NOI18N
+        btnDark.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(242, 242, 242))); // NOI18N
+        btnDark.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDarkActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDark, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 630, 40, 40));
+
+        roundPanel = new pnlHomeInterface(panelLightCol,0,50,16,pnlMain);
+        picLogotype.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/HomePageLogotype.png"))); // NOI18N
+        getContentPane().add(picLogotype, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+
+        pnlMain.setBorder(roundPanel);
+        pnlMain.setForeground(panelLightCol);
+
+        javax.swing.GroupLayout pnlMainLayout = new javax.swing.GroupLayout(pnlMain);
+        pnlMain.setLayout(pnlMainLayout);
+        pnlMainLayout.setHorizontalGroup(
+            pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+        pnlMainLayout.setVerticalGroup(
+            pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
+
+        getContentPane().add(pnlMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 800, 620));
+
+        lblGreetUser.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,30));
+        lblGreetUser.setText("Hello");
+        getContentPane().add(lblGreetUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 110, 30));
+
+        btnDashboard.setBackground(null);
+        btnDashboard.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        btnDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/HomeLogo.png"))); // NOI18N
+        btnDashboard.setText("Dashboard");
+        btnDashboard.setBorder(null);
+        getContentPane().add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 210, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        try {
-            UIManager.setLookAndFeel(new FlatLightLaf());
-            UIManager.put("Button.arc", 999);
-        } catch (UnsupportedLookAndFeelException e) {
-            System.out.println(e);
-        }
-        //</editor-fold>
+    private void btnDarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarkActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new HomeInterface().setVisible(true);
-        });
+        if (!darkEnabled) {
+            setToDark();
+        } else {
+            setToLight();
+        }
+
+    }//GEN-LAST:event_btnDarkActionPerformed
+
+    private void setToDark() {
+        try {
+            btnDark.setBackground(DarkBG);
+            btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/moon-stars1.png")));
+            
+            darkEnabled = true;
+            UIManager.setLookAndFeel(new FlatDarculaLaf());
+            SwingUtilities.updateComponentTreeUI(pnlMain);
+            pnlMain.setBackground(null);
+            roundPanel.setColor(panelDarkCol);
+            getContentPane().setBackground(DarkBG);
+            
+
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+
+    private void setToLight() {
+        try {
+            btnDark.setBackground(LightBG);
+            btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/moon-stars.png")));
+            
+            darkEnabled = false;
+            UIManager.setLookAndFeel(new FlatLightLaf());
+            SwingUtilities.updateComponentTreeUI(pnlMain);
+            pnlMain.setBackground(null);
+            roundPanel.setColor(panelLightCol);
+            getContentPane().setBackground(LightBG);
+
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public boolean getPreviousFrameColor (boolean isDarkModeEnabled) {
+        return isDarkModeEnabled;
+    }
+ 
     
     private final Color defaultLightBtnCol = new Color(51, 57, 140);
     private final Color hoverLightBtnCol = new Color(29, 29, 124);
@@ -79,6 +162,9 @@ public class HomeInterface extends javax.swing.JFrame {
     private final Color hoverLightTextCol = new Color(51, 57, 140);
     private final Color LightBG = new Color(242, 242, 242);
     private final Color defaultLightText = new Color(16, 20, 20);
+    private final Color panelLightCol = new Color(253,253,253);
+    
+    private final Color grayLightText = new Color(129,131,131);
 
     private final Color defaultDarkBtnCol = new Color(242, 242, 242);
     private final Color hoverDarkBtnCol = new Color(224, 225, 225);
@@ -87,9 +173,22 @@ public class HomeInterface extends javax.swing.JFrame {
     private final Color hoverDarkTextCol = new Color(147,150,191);
     private final Color DarkBG = new Color(30, 31, 31);
     private final Color defaultDarkText = new Color(242, 242, 242);
+    private final Color panelDarkCol = new Color(60,60,60);
 
-    public boolean darkEnabled = false;
+    public boolean darkEnabled;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btnDark;
+    private javax.swing.JButton btnDashboard;
+    private javax.swing.JLabel lblGreetUser;
+    private javax.swing.JLabel picLogotype;
+    private javax.swing.JPanel pnlMain;
     // End of variables declaration//GEN-END:variables
+
+    public Font loadFonts(int i) {
+        FontManager fontManager = new FontManager();
+
+        // Set the desired font for lblTitle
+        return fontManager.registerFonts(i);
+    }
 }
