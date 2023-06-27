@@ -1,6 +1,6 @@
 package com.mycompany.cs.grp8.sd1a;
 
-import res.fonts.FontManager;
+
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
+import res.fonts.FontManager;
 
 public class MainFeatures extends JPanel {
     private JLabel[] features;

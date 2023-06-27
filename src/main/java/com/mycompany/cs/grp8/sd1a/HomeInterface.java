@@ -1,11 +1,11 @@
 package com.mycompany.cs.grp8.sd1a;
 
-import res.fonts.FontManager;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import res.fonts.FontManager;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -62,7 +62,7 @@ public class HomeInterface extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnDark.setBackground(new java.awt.Color(242, 242, 242));
-        btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/moon-stars.png"))); // NOI18N
+        btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars.png"))); // NOI18N
         btnDark.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(242, 242, 242))); // NOI18N
         btnDark.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,7 +72,7 @@ public class HomeInterface extends javax.swing.JFrame {
         getContentPane().add(btnDark, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 630, 40, 40));
 
         roundPanel = new pnlHomeInterface(panelLightCol,0,50,16,pnlMain);
-        picLogotype.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/HomePageLogotype.png"))); // NOI18N
+        picLogotype.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/HomePageLogotype.png"))); // NOI18N
         getContentPane().add(picLogotype, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         pnlMain.setBorder(roundPanel);
@@ -97,9 +97,10 @@ public class HomeInterface extends javax.swing.JFrame {
 
         btnDashboard.setBackground(null);
         btnDashboard.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
-        btnDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/HomeLogo.png"))); // NOI18N
+        btnDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/HomeLogo.png"))); // NOI18N
         btnDashboard.setText("Dashboard");
         btnDashboard.setBorder(null);
+        btnDashboard.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 210, 50));
 
         pack();
@@ -118,7 +119,7 @@ public class HomeInterface extends javax.swing.JFrame {
     private void setToDark() {
         try {
             btnDark.setBackground(DarkBG);
-            btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/moon-stars1.png")));
+            btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars1.png")));
             
             darkEnabled = true;
             UIManager.setLookAndFeel(new FlatDarculaLaf());
@@ -136,7 +137,7 @@ public class HomeInterface extends javax.swing.JFrame {
     private void setToLight() {
         try {
             btnDark.setBackground(LightBG);
-            btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/moon-stars.png")));
+            btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars.png")));
             
             darkEnabled = false;
             UIManager.setLookAndFeel(new FlatLightLaf());

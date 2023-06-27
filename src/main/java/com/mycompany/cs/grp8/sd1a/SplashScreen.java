@@ -30,7 +30,7 @@ public class SplashScreen extends JWindow {
 
         setLayout(new BorderLayout());
         
-        Icon imageIcon = new ImageIcon(SplashScreen.class.getResource("/res/images/ShadiFinTech-Logo.png"));
+        Icon imageIcon = new ImageIcon(SplashScreen.class.getResource("/com/mycompany/cs/grp8/res/images/ShadiFinTech-Logo.png"));
         JLabel imageLabel = new JLabel(imageIcon);
 
         contentPane.add(imageLabel, BorderLayout.CENTER);

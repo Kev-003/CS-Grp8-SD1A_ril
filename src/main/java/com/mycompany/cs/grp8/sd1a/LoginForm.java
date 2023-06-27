@@ -1,6 +1,5 @@
 package com.mycompany.cs.grp8.sd1a;
 
-import res.fonts.FontManager;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.io.IOException;
@@ -13,6 +12,7 @@ import javax.swing.BorderFactory;
 import javax.swing.UIManager;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.FlatDarculaLaf;
+import res.fonts.FontManager;
 import java.sql.Connection;
 import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import java.sql.PreparedStatement;
@@ -87,18 +87,18 @@ public class LoginForm extends javax.swing.JFrame {
         picBG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setIconImage(new ImageIcon(getClass().getResource("/res/images/FrameIcon.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/FrameIcon.png")).getImage());
         setMinimumSize(new java.awt.Dimension(1080, 720));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         picColorIcon1.setVisible(false);
-        picColorIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/ColorLogo.png"))); // NOI18N
+        picColorIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/ColorLogo.png"))); // NOI18N
         getContentPane().add(picColorIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
 
         btnDark.setVisible(false);
         btnDark.setBackground(new java.awt.Color(242, 242, 242));
-        btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/moon-stars.png"))); // NOI18N
+        btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars.png"))); // NOI18N
         btnDark.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(242, 242, 242))); // NOI18N
         btnDark.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -296,7 +296,7 @@ public class LoginForm extends javax.swing.JFrame {
 
         pnlCoverScreen.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        picWhiteLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/WhiteLogo.png"))); // NOI18N
+        picWhiteLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/WhiteLogo.png"))); // NOI18N
         pnlCoverScreen.add(picWhiteLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, -1, -1));
 
         lblTagline2.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,75));
@@ -352,7 +352,7 @@ public class LoginForm extends javax.swing.JFrame {
         });
         pnlCoverScreen.add(btnSignupPrompt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 490, 160, 40));
 
-        picBG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/Background.png"))); // NOI18N
+        picBG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/Background.png"))); // NOI18N
         pnlCoverScreen.add(picBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 720));
         pnlFeatures.setVisible(false);
         getContentPane().add(pnlFeatures, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 540, 720));
@@ -418,8 +418,8 @@ public class LoginForm extends javax.swing.JFrame {
     private void setToDark() {
         try {
             btnDark.setBackground(DarkBG);
-            btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/moon-stars1.png")));
-            picColorIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/ColorLogo.png")));
+            btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars1.png")));
+            picColorIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/ColorLogo.png")));
             
             darkEnabled = true;
             UIManager.setLookAndFeel(new FlatDarculaLaf());
@@ -455,8 +455,8 @@ public class LoginForm extends javax.swing.JFrame {
     private void setToLight() {
         try {
             btnDark.setBackground(LightBG);
-            btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/moon-stars.png")));
-            picColorIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/ColorLogo.png")));
+            btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars.png")));
+            picColorIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/ColorLogo.png")));
             
             darkEnabled = false;
             UIManager.setLookAndFeel(new FlatLightLaf());
