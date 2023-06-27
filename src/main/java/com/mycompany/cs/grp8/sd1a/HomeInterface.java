@@ -16,10 +16,9 @@ import javax.swing.UIManager;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.FlatDarculaLaf;
-import java.awt.GridLayout;
+import java.awt.Dimension;
 import javax.swing.SwingUtilities;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.border.AbstractBorder;
 
 public class HomeInterface extends javax.swing.JFrame {
     pnlHomeInterface roundPanel;
@@ -50,16 +49,64 @@ public class HomeInterface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnHelp = new javax.swing.JButton();
+        btnInbox = new javax.swing.JButton();
+        btnTransactions = new javax.swing.JButton();
+        btnDashboard = new javax.swing.JButton();
         btnDark = new javax.swing.JToggleButton();
         picLogotype = new javax.swing.JLabel();
         pnlMain = new javax.swing.JPanel();
         lblGreetUser = new javax.swing.JLabel();
-        btnDashboard = new javax.swing.JButton();
+        btnProfile = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(LightBG);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnHelp.setBackground(LightBG);
+        btnHelp.setFont(new Font(loadFonts(13).getFontName(),Font.PLAIN,16));
+        btnHelp.setForeground(grayLightText);
+        btnHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/HelpLogo.png"))); // NOI18N
+        btnHelp.setText("Help");
+        btnHelp.setBorder(null);
+        btnHelp.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnHelp.setIconTextGap(20);
+        btnHelp.setPreferredSize(new Dimension(220,50));
+        getContentPane().add(btnHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 220, 50));
+
+        btnInbox.setBackground(LightBG);
+        btnInbox.setFont(new Font(loadFonts(13).getFontName(),Font.PLAIN,16));
+        btnInbox.setForeground(grayLightText);
+        btnInbox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/InboxLogo.png"))); // NOI18N
+        btnInbox.setText("Inbox");
+        btnInbox.setBorder(null);
+        btnInbox.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnInbox.setIconTextGap(20);
+        btnInbox.setPreferredSize(new Dimension(220,50));
+        getContentPane().add(btnInbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 220, 50));
+
+        btnTransactions.setBackground(LightBG);
+        btnTransactions.setFont(new Font(loadFonts(13).getFontName(),Font.PLAIN,16));
+        btnTransactions.setForeground(grayLightText);
+        btnTransactions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/TransacLogo.png"))); // NOI18N
+        btnTransactions.setText("  Transactions");
+        btnTransactions.setBorder(null);
+        btnTransactions.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnTransactions.setIconTextGap(20);
+        btnTransactions.setPreferredSize(new Dimension(220,50));
+        getContentPane().add(btnTransactions, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 220, 50));
+
+        btnDashboard.setBackground(LightBG);
+        btnDashboard.setFont(new Font(loadFonts(13).getFontName(),Font.PLAIN,16));
+        btnDashboard.setForeground(grayLightText);
+        btnDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/HomeLogo.png"))); // NOI18N
+        btnDashboard.setText("Dashboard");
+        btnDashboard.setBorder(null);
+        btnDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnDashboard.setIconTextGap(20);
+        btnDashboard.setPreferredSize(new Dimension(220,50));
+        getContentPane().add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 220, 50));
 
         btnDark.setBackground(new java.awt.Color(242, 242, 242));
         btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars.png"))); // NOI18N
@@ -95,13 +142,10 @@ public class HomeInterface extends javax.swing.JFrame {
         lblGreetUser.setText("Hello");
         getContentPane().add(lblGreetUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 110, 30));
 
-        btnDashboard.setBackground(null);
-        btnDashboard.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
-        btnDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/HomeLogo.png"))); // NOI18N
-        btnDashboard.setText("Dashboard");
-        btnDashboard.setBorder(null);
-        btnDashboard.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 210, 50));
+        btnProfile.setBackground(LightBG);
+        btnProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/rickroll.png"))); // NOI18N
+        btnProfile.setBorder(null);
+        getContentPane().add(btnProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 40, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -181,6 +225,10 @@ public class HomeInterface extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnDark;
     private javax.swing.JButton btnDashboard;
+    private javax.swing.JButton btnHelp;
+    private javax.swing.JButton btnInbox;
+    private javax.swing.JButton btnProfile;
+    private javax.swing.JButton btnTransactions;
     private javax.swing.JLabel lblGreetUser;
     private javax.swing.JLabel picLogotype;
     private javax.swing.JPanel pnlMain;
