@@ -43,7 +43,7 @@ public class LoginForm extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         picColorIcon1 = new javax.swing.JLabel();
@@ -58,24 +58,6 @@ public class LoginForm extends javax.swing.JFrame {
         lblPass = new javax.swing.JLabel();
         txtPass = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
-        pnlInfoFields = new javax.swing.JPanel();
-        calBday = new com.toedter.calendar.JDateChooser();
-        lblInfo = new javax.swing.JLabel();
-        txtSurname = new javax.swing.JTextField();
-        lblFirstName = new javax.swing.JLabel();
-        txtFirstName = new javax.swing.JTextField();
-        lblSurname = new javax.swing.JLabel();
-        lblBday = new javax.swing.JLabel();
-        pnlSignupFields = new javax.swing.JPanel();
-        cbShowHidePass2 = new javax.swing.JCheckBox();
-        lblSignup = new javax.swing.JLabel();
-        txtNum2 = new javax.swing.JTextField();
-        txtCreatePass = new javax.swing.JPasswordField();
-        lblNum1 = new javax.swing.JLabel();
-        lblCreatePass = new javax.swing.JLabel();
-        lblConfirmPass = new javax.swing.JLabel();
-        txtConfirmPass = new javax.swing.JPasswordField();
-        btnNext = new javax.swing.JButton();
         picFeatures = new javax.swing.JLabel();
         pnlCoverScreen = new javax.swing.JPanel();
         picWhiteLogo = new javax.swing.JLabel();
@@ -87,24 +69,19 @@ public class LoginForm extends javax.swing.JFrame {
         picBG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setIconImage(
-                new ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/FrameIcon.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/FrameIcon.png")).getImage());
         setMinimumSize(new java.awt.Dimension(1080, 720));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         picColorIcon1.setVisible(false);
-        picColorIcon1.setIcon(
-                new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/ColorLogo.png"))); // NOI18N
+        picColorIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/ColorLogo.png"))); // NOI18N
         getContentPane().add(picColorIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
 
         btnDark.setVisible(false);
         btnDark.setBackground(new java.awt.Color(242, 242, 242));
-        btnDark.setIcon(
-                new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars.png"))); // NOI18N
-        btnDark.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "",
-                javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
-                new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(242, 242, 242))); // NOI18N
+        btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars.png"))); // NOI18N
+        btnDark.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(242, 242, 242))); // NOI18N
         btnDark.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDarkActionPerformed(evt);
@@ -123,54 +100,52 @@ public class LoginForm extends javax.swing.JFrame {
         });
         pnlLoginFields.add(cbShowHidePass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, -1, -1));
 
-        lblLogin.setFont(new Font(loadFonts(0).getFontName(), Font.BOLD, 55));
+        lblLogin.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,55));
         lblLogin.setForeground(new java.awt.Color(16, 20, 20));
         lblLogin.setText("Login");
         pnlLoginFields.add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 280, 90));
 
-        txtNum.setBackground(new Color(0, 0, 0, 0));
-        txtNum.setFont(new Font(loadFonts(9).getFontName(), Font.TRUETYPE_FONT, 18));
+        txtNum.setBackground(new Color(0,0,0,0));
+        txtNum.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
         txtNum.setForeground(new java.awt.Color(16, 20, 20));
         txtNum.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         pnlLoginFields.add(txtNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 360, 40));
 
-        lblNum.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
+        lblNum.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
         lblNum.setForeground(grayLightText);
         lblNum.setText("Account Number");
         pnlLoginFields.add(lblNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, -1, -1));
 
-        lblName.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
+        lblName.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
         lblName.setForeground(grayLightText);
         lblName.setText("Name");
         pnlLoginFields.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, -1, -1));
 
-        txtName.setBackground(new Color(0, 0, 0, 0));
-        txtName.setFont(new Font(loadFonts(9).getFontName(), Font.TRUETYPE_FONT, 18));
+        txtName.setBackground(new Color(0,0,0,0));
+        txtName.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
         txtName.setForeground(new java.awt.Color(16, 20, 20));
         txtName.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         pnlLoginFields.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 360, 40));
 
-        lblPass.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
+        lblPass.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
         lblPass.setForeground(grayLightText);
         lblPass.setText("Password");
         pnlLoginFields.add(lblPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, -1, -1));
 
-        txtPass.setBackground(new Color(0, 0, 0, 0));
-        txtPass.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtPass.setBackground(new Color(0,0,0,0));
         txtPass.setForeground(new java.awt.Color(16, 20, 20));
         txtPass.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         txtPass.setEchoChar('\u00b7');
         pnlLoginFields.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, 360, 40));
 
         btnLogin.setBackground(defaultLightBtnCol);
-        btnLogin.setFont(new Font(loadFonts(9).getFontName(), Font.BOLD, 20));
+        btnLogin.setFont(new Font(loadFonts(9).getFontName(),Font.BOLD,20));
         btnLogin.setForeground(defaultLightBtnText);
         btnLogin.setText("Log In");
         btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnLoginMouseEntered(evt);
             }
-
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnLoginMouseExited(evt);
             }
@@ -187,149 +162,38 @@ public class LoginForm extends javax.swing.JFrame {
 
         getContentPane().add(pnlLoginFields, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 720));
 
-        pnlInfoFields.setBackground(new java.awt.Color(242, 242, 242));
-        pnlInfoFields.setVisible(false);
-        pnlInfoFields.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        pnlInfoFields.add(calBday, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 140, 40));
-
-        lblInfo.setFont(new Font(loadFonts(0).getFontName(), Font.BOLD, 55));
-        lblInfo.setForeground(new java.awt.Color(16, 20, 20));
-        lblInfo.setText("Information");
-        pnlInfoFields.add(lblInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 400, 90));
-
-        txtSurname.setBackground(new Color(0, 0, 0, 0));
-        txtSurname.setFont(new Font(loadFonts(9).getFontName(), Font.TRUETYPE_FONT, 18));
-        txtSurname.setForeground(new java.awt.Color(16, 20, 20));
-        txtSurname.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
-        pnlInfoFields.add(txtSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 360, 40));
-
-        lblFirstName.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
-        lblFirstName.setForeground(grayLightText);
-        lblFirstName.setText("First Name");
-        pnlInfoFields.add(lblFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
-
-        txtFirstName.setBackground(new Color(0, 0, 0, 0));
-        txtFirstName.setFont(new Font(loadFonts(9).getFontName(), Font.TRUETYPE_FONT, 18));
-        txtFirstName.setForeground(new java.awt.Color(16, 20, 20));
-        txtFirstName.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
-        pnlInfoFields.add(txtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 360, 40));
-
-        lblSurname.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
-        lblSurname.setForeground(grayLightText);
-        lblSurname.setText("Surname");
-        pnlInfoFields.add(lblSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
-
-        lblBday.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
-        lblBday.setForeground(grayLightText);
-        lblBday.setText("Birth Date");
-        pnlInfoFields.add(lblBday, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, -1, -1));
-
-        getContentPane().add(pnlFeatures, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 540, 720));
-
-        getContentPane().add(pnlInfoFields, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 720));
-
-        pnlSignupFields.setBackground(new java.awt.Color(242, 242, 242));
-        pnlSignupFields.setVisible(false);
-        pnlSignupFields.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        cbShowHidePass2.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cbShowHidePass2ItemStateChanged(evt);
-            }
-        });
-        pnlSignupFields.add(cbShowHidePass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, -1, -1));
-
-        lblSignup.setFont(new Font(loadFonts(0).getFontName(), Font.BOLD, 55));
-        lblSignup.setForeground(new java.awt.Color(16, 20, 20));
-        lblSignup.setText("Create Account");
-        pnlSignupFields.add(lblSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 400, 90));
-
-        txtNum2.setBackground(new Color(0, 0, 0, 0));
-        txtNum2.setFont(new Font(loadFonts(9).getFontName(), Font.TRUETYPE_FONT, 18));
-        txtNum2.setForeground(new java.awt.Color(16, 20, 20));
-        txtNum2.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
-        pnlSignupFields.add(txtNum2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 360, 40));
-
-        txtCreatePass.setBackground(new Color(0, 0, 0, 0));
-        txtCreatePass.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtCreatePass.setForeground(new java.awt.Color(16, 20, 20));
-        txtCreatePass.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
-        txtCreatePass.setEchoChar('\u00b7');
-        pnlSignupFields.add(txtCreatePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 360, 40));
-
-        lblNum1.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
-        lblNum1.setForeground(grayLightText);
-        lblNum1.setText("Account Number");
-        pnlSignupFields.add(lblNum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
-
-        lblCreatePass.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
-        lblCreatePass.setForeground(grayLightText);
-        lblCreatePass.setText("Create Password");
-        pnlSignupFields.add(lblCreatePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
-
-        lblConfirmPass.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
-        lblConfirmPass.setForeground(grayLightText);
-        lblConfirmPass.setText("Confirm Password");
-        pnlSignupFields.add(lblConfirmPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, -1, -1));
-
-        txtConfirmPass.setBackground(new Color(0, 0, 0, 0));
-        txtConfirmPass.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtConfirmPass.setForeground(new java.awt.Color(16, 20, 20));
-        txtConfirmPass.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
-        txtConfirmPass.setEchoChar('\u00b7');
-        pnlSignupFields.add(txtConfirmPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 360, 40));
-
-        btnNext.setBackground(LightBG);
-        btnNext.setFont(new Font(loadFonts(9).getFontName(), Font.PLAIN, 25));
-        btnNext.setForeground(hoverLightTextCol);
-        btnNext.setText("Next.");
-        btnNext.setBorder(null);
-        btnNext.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNextActionPerformed(evt);
-            }
-        });
-        pnlSignupFields.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, 100, 50));
-
-        pnlFeatures.setVisible(false);
-        getContentPane().add(pnlFeatures, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 540, 720));
-
-        getContentPane().add(pnlSignupFields, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 720));
-
         picFeatures.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/FeaturesBG.png"))); // NOI18N
         picFeatures.setVisible(false);
         getContentPane().add(picFeatures, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, -1, -1));
 
         pnlCoverScreen.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        picWhiteLogo.setIcon(
-                new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/WhiteLogo.png"))); // NOI18N
+        picWhiteLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/WhiteLogo.png"))); // NOI18N
         pnlCoverScreen.add(picWhiteLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, -1, -1));
 
-        lblTagline2.setFont(new Font(loadFonts(0).getFontName(), Font.BOLD, 75));
+        lblTagline2.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,75));
         lblTagline2.setForeground(new java.awt.Color(242, 242, 242));
         lblTagline2.setText("Seamless Experience.");
         pnlCoverScreen.add(lblTagline2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 820, 80));
 
-        lblTagline1.setFont(new Font(loadFonts(0).getFontName(), Font.BOLD, 75));
+        lblTagline1.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,75));
         lblTagline1.setForeground(new java.awt.Color(242, 242, 242));
         lblTagline1.setText("Secure Banking,");
         pnlCoverScreen.add(lblTagline1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 850, 90));
 
-        lblTitle.setFont(new Font(loadFonts(0).getFontName(), Font.BOLD, 25));
+        lblTitle.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,25));
         lblTitle.setForeground(new java.awt.Color(242, 242, 242));
         lblTitle.setText("ShadiFinTech");
         pnlCoverScreen.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 510, 40));
 
         btnLoginPrompt.setBackground(defaultDarkBtnCol);
-        btnLoginPrompt.setFont(new Font(loadFonts(9).getFontName(), Font.BOLD, 20));
+        btnLoginPrompt.setFont(new Font(loadFonts(9).getFontName(),Font.BOLD,20));
         btnLoginPrompt.setForeground(defaultDarkBtnText);
         btnLoginPrompt.setText("Log In");
         btnLoginPrompt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnLoginPromptMouseEntered(evt);
             }
-
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnLoginPromptMouseExited(evt);
             }
@@ -342,14 +206,13 @@ public class LoginForm extends javax.swing.JFrame {
         pnlCoverScreen.add(btnLoginPrompt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, 160, 40));
 
         btnSignupPrompt.setBackground(defaultDarkBtnCol);
-        btnSignupPrompt.setFont(new Font(loadFonts(9).getFontName(), Font.BOLD, 20));
+        btnSignupPrompt.setFont(new Font(loadFonts(9).getFontName(),Font.BOLD,20));
         btnSignupPrompt.setForeground(defaultDarkBtnText);
         btnSignupPrompt.setText("Sign Up");
         btnSignupPrompt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnSignupPromptMouseEntered(evt);
             }
-
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnSignupPromptMouseExited(evt);
             }
@@ -361,8 +224,7 @@ public class LoginForm extends javax.swing.JFrame {
         });
         pnlCoverScreen.add(btnSignupPrompt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 490, 160, 40));
 
-        picBG.setIcon(
-                new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/Background.png"))); // NOI18N
+        picBG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/Background.png"))); // NOI18N
         pnlCoverScreen.add(picBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 720));
         pnlFeatures.setVisible(false);
         getContentPane().add(pnlFeatures, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 540, 720));
@@ -399,19 +261,21 @@ public class LoginForm extends javax.swing.JFrame {
     }// GEN-LAST:event_btnLoginPromptActionPerformed
 
     private void btnSignupPromptActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSignupPromptActionPerformed
-        pnlCoverScreen.setVisible(false);
-        pnlSignupFields.setVisible(true);
-        picFeatures.setVisible(true);
-        pnlFeatures.setVisible(true);
-        btnDark.setVisible(true);
-        picColorIcon1.setVisible(true);
+        SignupForm signUp = new SignupForm();
+        if (darkEnabled) {
+            signUp.run(new FlatDarculaLaf());
+        } else {
+            signUp.run(new FlatLightLaf());
+        }
     }// GEN-LAST:event_btnSignupPromptActionPerformed
 
     private void cbShowHidePass1ItemStateChanged(java.awt.event.ItemEvent evt) {// GEN-FIRST:event_cbShowHidePass1ItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             txtPass.setEchoChar((char) 0);
+            txtPass.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
         } else {
             txtPass.setEchoChar('\u00b7');
+            txtPass.setFont(new Font("Segoe UI",Font.BOLD,12));
         }
     }// GEN-LAST:event_cbShowHidePass1ItemStateChanged
 
@@ -442,23 +306,6 @@ public class LoginForm extends javax.swing.JFrame {
             txtNum.setForeground(defaultDarkText);
             txtPass.setForeground(defaultDarkText);
 
-            SwingUtilities.updateComponentTreeUI(pnlSignupFields);
-            pnlSignupFields.setBackground(DarkBG);
-            lblSignup.setForeground(defaultDarkText);
-            txtNum2.setForeground(defaultDarkText);
-            txtCreatePass.setForeground(defaultDarkText);
-            txtConfirmPass.setForeground(defaultDarkText);
-
-            btnNext.setBorder(null);
-            btnNext.setBackground(DarkBG);
-            btnNext.setForeground(hoverDarkTextCol);
-
-            SwingUtilities.updateComponentTreeUI(pnlInfoFields);
-            pnlInfoFields.setBackground(DarkBG);
-            lblInfo.setForeground(defaultDarkText);
-            txtFirstName.setForeground(defaultDarkText);
-            txtSurname.setForeground(defaultDarkText);
-            calBday.setForeground(defaultDarkText);
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -481,23 +328,6 @@ public class LoginForm extends javax.swing.JFrame {
             txtNum.setForeground(defaultLightText);
             txtPass.setForeground(defaultLightText);
 
-            SwingUtilities.updateComponentTreeUI(pnlSignupFields);
-            pnlSignupFields.setBackground(LightBG);
-            lblSignup.setForeground(defaultLightText);
-            txtNum2.setForeground(defaultLightText);
-            txtCreatePass.setForeground(defaultLightText);
-            txtConfirmPass.setForeground(defaultLightText);
-
-            btnNext.setBorder(null);
-            btnNext.setBackground(LightBG);
-            btnNext.setForeground(hoverLightTextCol);
-
-            SwingUtilities.updateComponentTreeUI(pnlInfoFields);
-            pnlInfoFields.setBackground(LightBG);
-            lblInfo.setForeground(defaultLightText);
-            txtFirstName.setForeground(defaultLightText);
-            txtSurname.setForeground(defaultLightText);
-            calBday.setForeground(defaultLightText);
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -528,32 +358,6 @@ public class LoginForm extends javax.swing.JFrame {
         }
     }// GEN-LAST:event_btnLoginActionPerformed
 
-    private void cbShowHidePass2ItemStateChanged(java.awt.event.ItemEvent evt) {// GEN-FIRST:event_cbShowHidePass2ItemStateChanged
-        if (evt.getStateChange() == ItemEvent.SELECTED) {
-            txtCreatePass.setEchoChar((char) 0);
-        } else {
-            txtCreatePass.setEchoChar('\u00b7');
-        }
-    }// GEN-LAST:event_cbShowHidePass2ItemStateChanged
-
-    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnNextActionPerformed
-        String accNum = txtNum2.getText();
-
-        if (!isIntegerFormat(accNum)) {
-            javax.swing.JOptionPane.showMessageDialog(null, "Enter a valid account number.", "Invalid Account Number",
-                    javax.swing.JOptionPane.ERROR_MESSAGE);
-        } else if (!txtCreatePass.getText().equals(txtConfirmPass.getText())) {
-            javax.swing.JOptionPane.showMessageDialog(null, "Passwords do not match.", "Check Entered Password",
-                    javax.swing.JOptionPane.ERROR_MESSAGE);
-        } else if (accNum.isBlank()) {
-            javax.swing.JOptionPane.showMessageDialog(null, "Fill up all fields", "Missing Information",
-                    javax.swing.JOptionPane.ERROR_MESSAGE);
-        } else {
-            pnlSignupFields.setVisible(false);
-            pnlInfoFields.setVisible(true);
-        }
-    }// GEN-LAST:event_btnNextActionPerformed
-
     private boolean isIntegerFormat(String text) {
         String integerFormat = "\\d{5}\\s\\d{5}\\s\\d{5}\\s\\d{5}\\s\\d{5}"; // accepts only the format that banks use
                                                                              // for accounts
@@ -566,6 +370,7 @@ public class LoginForm extends javax.swing.JFrame {
             UIManager.put("Button.arc", 999);
         } catch (UnsupportedLookAndFeelException e) {
             System.out.println(e);
+            java.util.logging.Logger.getLogger(SignupForm.class.getName()).log(java.util.logging.Level.SEVERE, null, e);
         }
         // </editor-fold>
 
@@ -605,23 +410,12 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnDark;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnLoginPrompt;
-    private javax.swing.JButton btnNext;
     private javax.swing.JButton btnSignupPrompt;
-    private com.toedter.calendar.JDateChooser calBday;
     private javax.swing.JCheckBox cbShowHidePass1;
-    private javax.swing.JCheckBox cbShowHidePass2;
-    private javax.swing.JLabel lblBday;
-    private javax.swing.JLabel lblConfirmPass;
-    private javax.swing.JLabel lblCreatePass;
-    private javax.swing.JLabel lblFirstName;
-    private javax.swing.JLabel lblInfo;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblNum;
-    private javax.swing.JLabel lblNum1;
     private javax.swing.JLabel lblPass;
-    private javax.swing.JLabel lblSignup;
-    private javax.swing.JLabel lblSurname;
     private javax.swing.JLabel lblTagline1;
     private javax.swing.JLabel lblTagline2;
     private javax.swing.JLabel lblTitle;
@@ -630,17 +424,10 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JLabel picFeatures;
     private javax.swing.JLabel picWhiteLogo;
     private javax.swing.JPanel pnlCoverScreen;
-    private javax.swing.JPanel pnlInfoFields;
     private javax.swing.JPanel pnlLoginFields;
-    private javax.swing.JPanel pnlSignupFields;
-    private javax.swing.JPasswordField txtConfirmPass;
-    private javax.swing.JPasswordField txtCreatePass;
-    private javax.swing.JTextField txtFirstName;
     public javax.swing.JTextField txtName;
     private javax.swing.JTextField txtNum;
-    private javax.swing.JTextField txtNum2;
     private javax.swing.JPasswordField txtPass;
-    private javax.swing.JTextField txtSurname;
     // End of variables declaration//GEN-END:variables
 
     public Font loadFonts(int i) {

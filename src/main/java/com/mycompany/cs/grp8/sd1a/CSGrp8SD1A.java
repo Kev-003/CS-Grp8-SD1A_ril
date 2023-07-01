@@ -4,7 +4,7 @@ public class CSGrp8SD1A {
 
     public static void main(String[] args) {
         
-        SplashScreen.main(args);
+        SplashScreen.run();
         
     }
 }

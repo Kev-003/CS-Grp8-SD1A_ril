@@ -13,7 +13,7 @@ public class SplashScreen extends JWindow {
     
     private final JPanel contentPane;
 
-    public static void main(String[] args) {
+    public static void run() {
         try {
             SplashScreen splashScreen = new SplashScreen();
             splashScreen.showSplashScreen();
