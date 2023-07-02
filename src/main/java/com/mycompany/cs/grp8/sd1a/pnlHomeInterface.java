@@ -84,8 +84,7 @@ public class pnlHomeInterface extends AbstractBorder {
 
         // Create a rectangle to add from the bubble shape for certain corners
         Rectangle rect1 = new Rectangle(width - radii, 0, radii, radii);
-        Rectangle rect2 = new Rectangle(0, height - radii, radii, radii);
-        Rectangle rect3 = new Rectangle(width - radii, height - radii, radii, radii);
+        Rectangle rect2 = new Rectangle(width - radii, height - radii, radii, radii);
 
         // Create an area with the bubble shape
         Area area = new Area(bubble);
@@ -93,12 +92,10 @@ public class pnlHomeInterface extends AbstractBorder {
         // Create separate Graphics2D objects for each rectangle
         Graphics2D g2Rect1 = (Graphics2D) g.create();
         Graphics2D g2Rect2 = (Graphics2D) g.create();
-        Graphics2D g2Rect3 = (Graphics2D) g.create();
 
         // Apply rendering hints to the separate Graphics2D objects
         g2Rect1.setRenderingHints(hints);
         g2Rect2.setRenderingHints(hints);
-        g2Rect3.setRenderingHints(hints);
 
         // Fill the rectangles with the background color using the separate Graphics2D objects
         g2Rect1.setColor(color);
@@ -107,13 +104,9 @@ public class pnlHomeInterface extends AbstractBorder {
         g2Rect2.setColor(color);
         g2Rect2.fill(rect2);
 
-        g2Rect3.setColor(color);
-        g2Rect3.fill(rect3);
-
         // Subtract the rectangle from the area to remove the upper right corner
         area.add(new Area(rect1));
         area.add(new Area(rect2));
-        area.add(new Area(rect3));
 
         // Fill the shape with the background color
         g2.setColor(color);

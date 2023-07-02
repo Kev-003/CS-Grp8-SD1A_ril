@@ -57,9 +57,12 @@ public class HomeInterface extends javax.swing.JFrame {
         btnDashboard = new javax.swing.JButton();
         btnDark = new javax.swing.JToggleButton();
         picLogotype = new javax.swing.JLabel();
-        lblUser = new javax.swing.JLabel();
-        btnProfile = new javax.swing.JButton();
         pnlMain = new javax.swing.JPanel();
+        btnProfile = new javax.swing.JButton();
+        lblUser = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblBalance = new javax.swing.JLabel();
+        lblSideBar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(LightBG);
@@ -67,48 +70,61 @@ public class HomeInterface extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnHelp.setBackground(LightBG);
-        btnHelp.setFont(new Font(loadFonts(13).getFontName(),Font.PLAIN,16));
-        btnHelp.setForeground(grayLightText);
-        btnHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/HelpLogo.png"))); // NOI18N
+        btnHelp.setContentAreaFilled(false);
+        btnHelp.setFont(new Font(loadFonts(9).getFontName(),Font.PLAIN,12));
+        btnHelp.setForeground(defaultDarkText);
+        btnHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/Help.png"))); // NOI18N
         btnHelp.setText("Help");
         btnHelp.setBorder(null);
-        btnHelp.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnHelp.setIconTextGap(20);
+        btnHelp.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnHelp.setIconTextGap(1);
         btnHelp.setPreferredSize(new Dimension(220,50));
-        getContentPane().add(btnHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 220, 50));
+        btnHelp.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(btnHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 80, 80));
 
         btnInbox.setBackground(LightBG);
-        btnInbox.setFont(new Font(loadFonts(13).getFontName(),Font.PLAIN,16));
-        btnInbox.setForeground(grayLightText);
-        btnInbox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/InboxLogo.png"))); // NOI18N
+        btnInbox.setContentAreaFilled(false);
+        btnInbox.setFont(new Font(loadFonts(9).getFontName(),Font.PLAIN,12));
+        btnInbox.setForeground(defaultDarkText);
+        btnInbox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/Inbox.png"))); // NOI18N
         btnInbox.setText("Inbox");
         btnInbox.setBorder(null);
-        btnInbox.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnInbox.setIconTextGap(20);
+        btnInbox.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnInbox.setIconTextGap(1);
         btnInbox.setPreferredSize(new Dimension(220,50));
-        getContentPane().add(btnInbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 220, 50));
+        btnInbox.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(btnInbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 80, 80));
 
         btnTransactions.setBackground(LightBG);
-        btnTransactions.setFont(new Font(loadFonts(13).getFontName(),Font.PLAIN,16));
-        btnTransactions.setForeground(grayLightText);
-        btnTransactions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/TransacLogo.png"))); // NOI18N
-        btnTransactions.setText("  Transactions");
+        btnTransactions.setContentAreaFilled(false);
+        btnTransactions.setFont(new Font(loadFonts(9).getFontName(),Font.PLAIN,12));
+        btnTransactions.setForeground(defaultDarkText);
+        btnTransactions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/Transac.png"))); // NOI18N
+        btnTransactions.setText("Transactions");
         btnTransactions.setBorder(null);
-        btnTransactions.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnTransactions.setIconTextGap(20);
+        btnTransactions.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnTransactions.setIconTextGap(1);
         btnTransactions.setPreferredSize(new Dimension(220,50));
-        getContentPane().add(btnTransactions, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 220, 50));
+        btnTransactions.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnTransactions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTransactionsActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnTransactions, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 80, 80));
 
+        btnDashboard.setContentAreaFilled(false);
         btnDashboard.setBackground(LightBG);
-        btnDashboard.setFont(new Font(loadFonts(13).getFontName(),Font.PLAIN,16));
-        btnDashboard.setForeground(grayLightText);
-        btnDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/HomeLogo.png"))); // NOI18N
+        btnDashboard.setFont(new Font(loadFonts(9).getFontName(),Font.PLAIN,12));
+        btnDashboard.setForeground(defaultDarkText);
+        btnDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/Home.png"))); // NOI18N
         btnDashboard.setText("Dashboard");
         btnDashboard.setBorder(null);
-        btnDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnDashboard.setIconTextGap(20);
+        btnDashboard.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDashboard.setIconTextGap(1);
         btnDashboard.setPreferredSize(new Dimension(220,50));
-        getContentPane().add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 220, 50));
+        btnDashboard.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 80, 80));
 
         btnDark.setBackground(new java.awt.Color(242, 242, 242));
         btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars.png"))); // NOI18N
@@ -118,19 +134,19 @@ public class HomeInterface extends javax.swing.JFrame {
                 btnDarkActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDark, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 630, 40, 40));
+        getContentPane().add(btnDark, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 630, 40, 40));
 
         roundPanel = new pnlHomeInterface(panelLightCol,0,50,16,pnlMain);
-        picLogotype.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/HomePageLogotype.png"))); // NOI18N
-        getContentPane().add(picLogotype, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+        picLogotype.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/WhiteLogo2_1.png"))); // NOI18N
+        getContentPane().add(picLogotype, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
-        lblUser.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,30));
-        lblUser.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblUser.setText("User Name");
-        lblUser.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        getContentPane().add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 230, 40));
+        pnlMain.setBorder(roundPanel);
+        pnlMain.setForeground(panelLightCol);
+        pnlMain.setOpaque(false);
+        pnlMain.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnProfile.setBackground(LightBG);
+        btnProfile.setContentAreaFilled(false);
         btnProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/rickroll.png"))); // NOI18N
         btnProfile.setBorder(null);
         btnProfile.addActionListener(new java.awt.event.ActionListener() {
@@ -138,23 +154,27 @@ public class HomeInterface extends javax.swing.JFrame {
                 btnProfileActionPerformed(evt);
             }
         });
-        getContentPane().add(btnProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 40, -1, -1));
+        pnlMain.add(btnProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 40, -1, -1));
 
-        pnlMain.setBorder(roundPanel);
-        pnlMain.setForeground(panelLightCol);
+        lblUser.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,16));
+        lblUser.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblUser.setText("User Name");
+        lblUser.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        pnlMain.add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 40, 110, 40));
 
-        javax.swing.GroupLayout pnlMainLayout = new javax.swing.GroupLayout(pnlMain);
-        pnlMain.setLayout(pnlMainLayout);
-        pnlMainLayout.setHorizontalGroup(
-            pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-        pnlMainLayout.setVerticalGroup(
-            pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
-        );
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        getContentPane().add(pnlMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 800, 620));
+        lblBalance.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,16));
+        lblBalance.setForeground(defaultDarkText);
+        lblBalance.setText("Balance");
+        jPanel1.add(lblBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        pnlMain.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 490, 280));
+
+        getContentPane().add(pnlMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 970, 720));
+
+        lblSideBar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/SideBar.png"))); // NOI18N
+        getContentPane().add(lblSideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -172,6 +192,10 @@ public class HomeInterface extends javax.swing.JFrame {
     private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProfileActionPerformed
+
+    private void btnTransactionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransactionsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTransactionsActionPerformed
 
     private void setToDark() {
         try {
@@ -255,6 +279,9 @@ public class HomeInterface extends javax.swing.JFrame {
     private javax.swing.JButton btnInbox;
     private javax.swing.JButton btnProfile;
     private javax.swing.JButton btnTransactions;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblBalance;
+    private javax.swing.JLabel lblSideBar;
     private javax.swing.JLabel lblUser;
     private javax.swing.JLabel picLogotype;
     private javax.swing.JPanel pnlMain;
