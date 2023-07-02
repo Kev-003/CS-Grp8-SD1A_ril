@@ -21,18 +21,20 @@ import javax.swing.SwingUtilities;
 import javax.swing.UnsupportedLookAndFeelException;
 
 public class HomeInterface extends javax.swing.JFrame {
+
     pnlHomeInterface roundPanel;
-    
+
     /**
      * Creates new form HomeInterface
+     *
      * @param darkEnabled
      */
     public HomeInterface(boolean darkEnabled) {
         this.darkEnabled = darkEnabled;
         UIManager.put("Button.arc", 999);
-        
+
         initComponents();
-        
+
         if (darkEnabled) {
             setToDark();
         } else {
@@ -55,9 +57,9 @@ public class HomeInterface extends javax.swing.JFrame {
         btnDashboard = new javax.swing.JButton();
         btnDark = new javax.swing.JToggleButton();
         picLogotype = new javax.swing.JLabel();
-        pnlMain = new javax.swing.JPanel();
-        lblGreetUser = new javax.swing.JLabel();
+        lblUser = new javax.swing.JLabel();
         btnProfile = new javax.swing.JButton();
+        pnlMain = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(LightBG);
@@ -122,6 +124,22 @@ public class HomeInterface extends javax.swing.JFrame {
         picLogotype.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/HomePageLogotype.png"))); // NOI18N
         getContentPane().add(picLogotype, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
+        lblUser.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,30));
+        lblUser.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblUser.setText("User Name");
+        lblUser.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        getContentPane().add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 230, 40));
+
+        btnProfile.setBackground(LightBG);
+        btnProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/rickroll.png"))); // NOI18N
+        btnProfile.setBorder(null);
+        btnProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProfileActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 40, -1, -1));
+
         pnlMain.setBorder(roundPanel);
         pnlMain.setForeground(panelLightCol);
 
@@ -138,15 +156,6 @@ public class HomeInterface extends javax.swing.JFrame {
 
         getContentPane().add(pnlMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 800, 620));
 
-        lblGreetUser.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,30));
-        lblGreetUser.setText("Hello");
-        getContentPane().add(lblGreetUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 110, 30));
-
-        btnProfile.setBackground(LightBG);
-        btnProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/rickroll.png"))); // NOI18N
-        btnProfile.setBorder(null);
-        getContentPane().add(btnProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 40, -1, -1));
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -160,11 +169,15 @@ public class HomeInterface extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnDarkActionPerformed
 
+    private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnProfileActionPerformed
+
     private void setToDark() {
         try {
             btnDark.setBackground(DarkBG);
             btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars1.png")));
-            
+
             darkEnabled = true;
             UIManager.setLookAndFeel(new FlatDarculaLaf());
             SwingUtilities.updateComponentTreeUI(pnlMain);
@@ -172,6 +185,13 @@ public class HomeInterface extends javax.swing.JFrame {
             roundPanel.setColor(panelDarkCol);
             getContentPane().setBackground(DarkBG);
             
+            btnDashboard.setBackground(DarkBG);
+            btnTransactions.setBackground(DarkBG);
+            btnInbox.setBackground(DarkBG);
+            btnHelp.setBackground(DarkBG);
+            
+            lblUser.setForeground(defaultDarkText);
+            btnProfile.setBackground(DarkBG);
 
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
@@ -182,24 +202,30 @@ public class HomeInterface extends javax.swing.JFrame {
         try {
             btnDark.setBackground(LightBG);
             btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars.png")));
-            
+
             darkEnabled = false;
             UIManager.setLookAndFeel(new FlatLightLaf());
             SwingUtilities.updateComponentTreeUI(pnlMain);
             pnlMain.setBackground(null);
             roundPanel.setColor(panelLightCol);
             getContentPane().setBackground(LightBG);
-
+            
+            btnDashboard.setBackground(LightBG);
+            btnTransactions.setBackground(LightBG);
+            btnInbox.setBackground(LightBG);
+            btnHelp.setBackground(LightBG);
+            
+            lblUser.setForeground(defaultLightText);
+            btnProfile.setBackground(LightBG);
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public boolean getPreviousFrameColor (boolean isDarkModeEnabled) {
+
+    public boolean getPreviousFrameColor(boolean isDarkModeEnabled) {
         return isDarkModeEnabled;
     }
- 
-    
+
     private final Color defaultLightBtnCol = new Color(51, 57, 140);
     private final Color hoverLightBtnCol = new Color(29, 29, 124);
     private final Color defaultLightBtnText = new Color(242, 242, 242);
@@ -207,21 +233,21 @@ public class HomeInterface extends javax.swing.JFrame {
     private final Color hoverLightTextCol = new Color(51, 57, 140);
     private final Color LightBG = new Color(242, 242, 242);
     private final Color defaultLightText = new Color(16, 20, 20);
-    private final Color panelLightCol = new Color(253,253,253);
-    
-    private final Color grayLightText = new Color(129,131,131);
+    private final Color panelLightCol = new Color(253, 253, 253);
+
+    private final Color grayLightText = new Color(129, 131, 131);
 
     private final Color defaultDarkBtnCol = new Color(242, 242, 242);
     private final Color hoverDarkBtnCol = new Color(224, 225, 225);
     private final Color defaultDarkBtnText = new Color(51, 57, 140);
     private final Color hoverDarkBtnText = new Color(242, 242, 242);
-    private final Color hoverDarkTextCol = new Color(147,150,191);
+    private final Color hoverDarkTextCol = new Color(147, 150, 191);
     private final Color DarkBG = new Color(30, 31, 31);
     private final Color defaultDarkText = new Color(242, 242, 242);
-    private final Color panelDarkCol = new Color(60,60,60);
+    private final Color panelDarkCol = new Color(60, 60, 60);
 
     public boolean darkEnabled;
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnDark;
     private javax.swing.JButton btnDashboard;
@@ -229,7 +255,7 @@ public class HomeInterface extends javax.swing.JFrame {
     private javax.swing.JButton btnInbox;
     private javax.swing.JButton btnProfile;
     private javax.swing.JButton btnTransactions;
-    private javax.swing.JLabel lblGreetUser;
+    private javax.swing.JLabel lblUser;
     private javax.swing.JLabel picLogotype;
     private javax.swing.JPanel pnlMain;
     // End of variables declaration//GEN-END:variables

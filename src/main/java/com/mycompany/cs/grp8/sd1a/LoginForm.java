@@ -364,7 +364,7 @@ public class LoginForm extends javax.swing.JFrame {
         return text.matches(integerFormat);
     }
 
-    public static void main(String args[]) {
+    public static void openForm() {
         try {
             UIManager.setLookAndFeel(new FlatLightLaf());
             UIManager.put("Button.arc", 999);

@@ -21,8 +21,10 @@ import javax.swing.UnsupportedLookAndFeelException;
 import res.fonts.FontManager;
 
 public class SignupForm extends javax.swing.JFrame {
+
     Connection con = null;
     MainFeatures pnlFeatures = new MainFeatures();
+
     /**
      * Creates new form SignupForm
      */
@@ -42,19 +44,23 @@ public class SignupForm extends javax.swing.JFrame {
         btnDark = new javax.swing.JToggleButton();
         picColorIcon1 = new javax.swing.JLabel();
         pnlAddressFields = new javax.swing.JPanel();
+        txtZip = new javax.swing.JTextField();
+        lblZip = new javax.swing.JLabel();
+        txtProvince = new javax.swing.JTextField();
+        lblProvince = new javax.swing.JLabel();
         txtCity = new javax.swing.JTextField();
         lblCity = new javax.swing.JLabel();
         lblStrt = new javax.swing.JLabel();
         txtStrt = new javax.swing.JTextField();
-        lblInfo1 = new javax.swing.JLabel();
+        lblInfo2 = new javax.swing.JLabel();
         txtBrgy = new javax.swing.JTextField();
         lblBrgy = new javax.swing.JLabel();
         lblNo = new javax.swing.JLabel();
         txtNo = new javax.swing.JTextField();
-        btnNext3 = new javax.swing.JButton();
+        btnSignup = new javax.swing.JButton();
         pnlInfoFields = new javax.swing.JPanel();
         calBday = new com.toedter.calendar.JDateChooser();
-        lblInfo = new javax.swing.JLabel();
+        lblInfo1 = new javax.swing.JLabel();
         txtSurname = new javax.swing.JTextField();
         lblFirstName = new javax.swing.JLabel();
         txtFirstName = new javax.swing.JTextField();
@@ -71,6 +77,7 @@ public class SignupForm extends javax.swing.JFrame {
         lblConfirmPass = new javax.swing.JLabel();
         txtConfirmPass = new javax.swing.JPasswordField();
         btnNext1 = new javax.swing.JButton();
+        pnlFeatures.setVisible(true);
         picFeatures = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,8 +97,30 @@ public class SignupForm extends javax.swing.JFrame {
         getContentPane().add(picColorIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
 
         pnlAddressFields.setBackground(new java.awt.Color(242, 242, 242));
-        pnlInfoFields.setVisible(false);
+        pnlAddressFields.setVisible(false);
         pnlAddressFields.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtZip.setBackground(new Color(0,0,0,0));
+        txtZip.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
+        txtZip.setForeground(new java.awt.Color(16, 20, 20));
+        txtZip.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
+        pnlAddressFields.add(txtZip, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 90, 40));
+
+        lblZip.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblZip.setForeground(grayLightText);
+        lblZip.setText("Zip Code");
+        pnlAddressFields.add(lblZip, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, -1));
+
+        txtProvince.setBackground(new Color(0,0,0,0));
+        txtProvince.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
+        txtProvince.setForeground(new java.awt.Color(16, 20, 20));
+        txtProvince.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
+        pnlAddressFields.add(txtProvince, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 250, 40));
+
+        lblProvince.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblProvince.setForeground(grayLightText);
+        lblProvince.setText("Province");
+        pnlAddressFields.add(lblProvince, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, -1, -1));
 
         txtCity.setBackground(new Color(0,0,0,0));
         txtCity.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
@@ -115,10 +144,10 @@ public class SignupForm extends javax.swing.JFrame {
         txtStrt.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         pnlAddressFields.add(txtStrt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 270, 40));
 
-        lblInfo1.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,55));
-        lblInfo1.setForeground(new java.awt.Color(16, 20, 20));
-        lblInfo1.setText("Information");
-        pnlAddressFields.add(lblInfo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 400, 90));
+        lblInfo2.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,55));
+        lblInfo2.setForeground(new java.awt.Color(16, 20, 20));
+        lblInfo2.setText("Information");
+        pnlAddressFields.add(lblInfo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 400, 90));
 
         txtBrgy.setBackground(new Color(0,0,0,0));
         txtBrgy.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
@@ -142,19 +171,24 @@ public class SignupForm extends javax.swing.JFrame {
         txtNo.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         pnlAddressFields.add(txtNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 70, 40));
 
-        btnNext3.setBackground(LightBG);
-        btnNext3.setFont(new Font(loadFonts(9).getFontName(),Font.PLAIN,25));
-        btnNext3.setForeground(hoverLightTextCol);
-        btnNext3.setText("Next.");
-        btnNext3.setBorder(null);
-        btnNext3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNext3ActionPerformed(evt);
+        btnSignup.setBackground(defaultLightBtnCol);
+        btnSignup.setFont(new Font(loadFonts(9).getFontName(),Font.BOLD,20));
+        btnSignup.setForeground(defaultLightBtnText);
+        btnSignup.setText("Sign Up");
+        btnSignup.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSignupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSignupMouseExited(evt);
             }
         });
-        pnlAddressFields.add(btnNext3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, 100, 50));
-
-        getContentPane().add(pnlFeatures, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 540, 720));
+        btnSignup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignupActionPerformed(evt);
+            }
+        });
+        pnlAddressFields.add(btnSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 500, 130, 40));
 
         getContentPane().add(pnlAddressFields, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 720));
 
@@ -163,10 +197,10 @@ public class SignupForm extends javax.swing.JFrame {
         pnlInfoFields.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         pnlInfoFields.add(calBday, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 140, 40));
 
-        lblInfo.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,55));
-        lblInfo.setForeground(new java.awt.Color(16, 20, 20));
-        lblInfo.setText("Information");
-        pnlInfoFields.add(lblInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 400, 90));
+        lblInfo1.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,55));
+        lblInfo1.setForeground(new java.awt.Color(16, 20, 20));
+        lblInfo1.setText("Information");
+        pnlInfoFields.add(lblInfo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 400, 90));
 
         txtSurname.setBackground(new Color(0,0,0,0));
         txtSurname.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
@@ -206,8 +240,6 @@ public class SignupForm extends javax.swing.JFrame {
             }
         });
         pnlInfoFields.add(btnNext2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, 100, 50));
-
-        getContentPane().add(pnlFeatures, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 540, 720));
 
         getContentPane().add(pnlInfoFields, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 720));
 
@@ -261,8 +293,6 @@ public class SignupForm extends javax.swing.JFrame {
 
         btnNext1.setBackground(LightBG);
         btnNext1.setFont(new Font(loadFonts(9).getFontName(),Font.PLAIN,25));
-        pnlFeatures.setVisible(false);
-        getContentPane().add(pnlFeatures, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 540, 720));
         btnNext1.setForeground(hoverLightTextCol);
         btnNext1.setText("Next.");
         btnNext1.setBorder(null);
@@ -279,6 +309,7 @@ public class SignupForm extends javax.swing.JFrame {
 
         picFeatures.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/FeaturesBG.png"))); // NOI18N
         getContentPane().add(picFeatures, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, -1, -1));
+        getContentPane().add(pnlFeatures, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 540, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -286,12 +317,18 @@ public class SignupForm extends javax.swing.JFrame {
     private void cbShowHidePass2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbShowHidePass2ItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             txtCreatePass.setEchoChar((char) 0);
-            txtCreatePass.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
+            txtCreatePass.setFont(new Font(loadFonts(9).getFontName(), Font.TRUETYPE_FONT, 18));
         } else {
             txtCreatePass.setEchoChar('\u00b7');
-            txtCreatePass.setFont(new Font("Segoe UI",Font.BOLD,12));
+            txtCreatePass.setFont(new Font("Segoe UI", Font.BOLD, 12));
         }
     }//GEN-LAST:event_cbShowHidePass2ItemStateChanged
+
+    private boolean isIntegerFormat(String text) {
+        String integerFormat = "\\d{5}\\s\\d{5}\\s\\d{5}\\s\\d{5}\\s\\d{5}"; // accepts only the format that banks use
+        // for accounts
+        return text.matches(integerFormat);
+    }
 
     private void btnNext1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext1ActionPerformed
         String accNum = txtNum2.getText();
@@ -310,13 +347,7 @@ public class SignupForm extends javax.swing.JFrame {
             pnlInfoFields.setVisible(true);
         }
     }//GEN-LAST:event_btnNext1ActionPerformed
-    
-    private boolean isIntegerFormat(String text) {
-        String integerFormat = "\\d{5}\\s\\d{5}\\s\\d{5}\\s\\d{5}\\s\\d{5}"; // accepts only the format that banks use
-                                                                             // for accounts
-        return text.matches(integerFormat);
-    }
-    
+
     private void btnDarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarkActionPerformed
         if (!darkEnabled) {
             setToDark();
@@ -326,12 +357,21 @@ public class SignupForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDarkActionPerformed
 
     private void btnNext2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext2ActionPerformed
-        // TODO add your handling code here:
+        pnlInfoFields.setVisible(false);
+        pnlAddressFields.setVisible(true);
     }//GEN-LAST:event_btnNext2ActionPerformed
 
-    private void btnNext3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNext3ActionPerformed
+    private void btnSignupMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignupMouseEntered
+        btnSignup.setBackground(defaultLightBtnCol);
+    }//GEN-LAST:event_btnSignupMouseEntered
+
+    private void btnSignupMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignupMouseExited
+        btnSignup.setBackground(hoverLightBtnCol);
+    }//GEN-LAST:event_btnSignupMouseExited
+
+    private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
+        new HomeInterface(darkEnabled).setVisible(true);
+    }//GEN-LAST:event_btnSignupActionPerformed
 
     private void setToDark() {
         try {
@@ -357,10 +397,24 @@ public class SignupForm extends javax.swing.JFrame {
 
             SwingUtilities.updateComponentTreeUI(pnlInfoFields);
             pnlInfoFields.setBackground(DarkBG);
-            lblInfo.setForeground(defaultDarkText);
+            lblInfo1.setForeground(defaultDarkText);
             txtFirstName.setForeground(defaultDarkText);
             txtSurname.setForeground(defaultDarkText);
             calBday.setForeground(defaultDarkText);
+            
+            btnNext2.setBorder(null);
+            btnNext2.setBackground(DarkBG);
+            btnNext2.setForeground(hoverDarkTextCol);
+            
+            SwingUtilities.updateComponentTreeUI(pnlAddressFields);
+            pnlAddressFields.setBackground(DarkBG);
+            lblInfo2.setForeground(defaultDarkText);
+            txtNo.setForeground(defaultDarkText);
+            txtStrt.setForeground(defaultDarkText);
+            txtBrgy.setForeground(defaultDarkText);
+            txtCity.setForeground(defaultDarkText);
+            txtProvince.setForeground(defaultDarkText);
+            txtZip.setForeground(defaultDarkText);
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -390,15 +444,29 @@ public class SignupForm extends javax.swing.JFrame {
 
             SwingUtilities.updateComponentTreeUI(pnlInfoFields);
             pnlInfoFields.setBackground(LightBG);
-            lblInfo.setForeground(defaultLightText);
+            lblInfo1.setForeground(defaultLightText);
             txtFirstName.setForeground(defaultLightText);
             txtSurname.setForeground(defaultLightText);
             calBday.setForeground(defaultLightText);
+            
+            btnNext2.setBorder(null);
+            btnNext2.setBackground(LightBG);
+            btnNext2.setForeground(hoverLightTextCol);
+            
+            SwingUtilities.updateComponentTreeUI(pnlAddressFields);
+            pnlAddressFields.setBackground(LightBG);
+            lblInfo2.setForeground(defaultLightText);
+            txtNo.setForeground(defaultLightText);
+            txtStrt.setForeground(defaultLightText);
+            txtBrgy.setForeground(defaultLightText);
+            txtCity.setForeground(defaultLightText);
+            txtProvince.setForeground(defaultLightText);
+            txtZip.setForeground(defaultLightText);
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public void run(LookAndFeel theme) {
         try {
             UIManager.setLookAndFeel(theme);
@@ -413,8 +481,7 @@ public class SignupForm extends javax.swing.JFrame {
             new SignupForm().setVisible(true);
         });
     }
-    
-    
+
     private final Color defaultLightBtnCol = new Color(51, 57, 140);
     private final Color hoverLightBtnCol = new Color(29, 29, 124);
     private final Color defaultLightBtnText = new Color(242, 242, 242);
@@ -437,7 +504,7 @@ public class SignupForm extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnDark;
     private javax.swing.JButton btnNext1;
     private javax.swing.JButton btnNext2;
-    private javax.swing.JButton btnNext3;
+    private javax.swing.JButton btnSignup;
     private com.toedter.calendar.JDateChooser calBday;
     private javax.swing.JCheckBox cbShowHidePass2;
     private javax.swing.JLabel lblBday;
@@ -446,13 +513,15 @@ public class SignupForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblConfirmPass;
     private javax.swing.JLabel lblCreatePass;
     private javax.swing.JLabel lblFirstName;
-    private javax.swing.JLabel lblInfo;
     private javax.swing.JLabel lblInfo1;
+    private javax.swing.JLabel lblInfo2;
     private javax.swing.JLabel lblNo;
     private javax.swing.JLabel lblNum1;
+    private javax.swing.JLabel lblProvince;
     private javax.swing.JLabel lblSignup;
     private javax.swing.JLabel lblStrt;
     private javax.swing.JLabel lblSurname;
+    private javax.swing.JLabel lblZip;
     private javax.swing.JLabel picColorIcon1;
     private javax.swing.JLabel picFeatures;
     private javax.swing.JPanel pnlAddressFields;
@@ -465,8 +534,10 @@ public class SignupForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtNo;
     private javax.swing.JTextField txtNum2;
+    private javax.swing.JTextField txtProvince;
     private javax.swing.JTextField txtStrt;
     private javax.swing.JTextField txtSurname;
+    private javax.swing.JTextField txtZip;
     // End of variables declaration//GEN-END:variables
 
     public Font loadFonts(int i) {

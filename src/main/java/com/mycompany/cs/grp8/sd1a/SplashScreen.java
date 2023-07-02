@@ -52,7 +52,7 @@ public class SplashScreen extends JWindow {
             public void run() {
                 java.awt.EventQueue.invokeLater(() -> {
                     dispose();
-                    LoginForm.main(new String[0]);
+                    LoginForm.openForm();
                 });
             }
         }, 4000);

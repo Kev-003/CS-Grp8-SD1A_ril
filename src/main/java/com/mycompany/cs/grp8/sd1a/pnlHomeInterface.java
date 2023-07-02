@@ -4,16 +4,13 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Insets;
-import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.geom.Area;
 import java.awt.geom.RoundRectangle2D;
-import javax.swing.JPanel;
 import javax.swing.border.AbstractBorder;
 
 public class pnlHomeInterface extends AbstractBorder {
@@ -21,11 +18,8 @@ public class pnlHomeInterface extends AbstractBorder {
     private Color color;
     private int thickness = 4;
     private int radii = 8;
-    private Insets insets = null;
     private BasicStroke stroke = null;
     private int strokePad;
-    private int pointerPad = 4;
-    private boolean left = true;
     RenderingHints hints;
     private Container parentContainer;
 
@@ -51,9 +45,6 @@ public class pnlHomeInterface extends AbstractBorder {
                 RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
 
-        int pad = radii + strokePad;
-        int bottomPad = pad + pointerSize + strokePad;
-        insets = new Insets(pad, pad, bottomPad, pad);
     }
 
     @Override
