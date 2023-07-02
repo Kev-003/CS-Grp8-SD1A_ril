@@ -12,7 +12,6 @@ public class dbConnection {
     private static dbConnection instance;
 
     dbConnection() {
-        Connection con = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("Driver Loaded");
