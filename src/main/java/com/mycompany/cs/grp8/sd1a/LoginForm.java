@@ -106,7 +106,7 @@ public class LoginForm extends javax.swing.JFrame {
         pnlLoginFields.add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 280, 90));
 
         txtNum.setBackground(new Color(0,0,0,0));
-        txtNum.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
+        txtNum.setFont(new Font(loadFonts(20).getFontName(),Font.TRUETYPE_FONT,18));
         txtNum.setForeground(new java.awt.Color(16, 20, 20));
         txtNum.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         pnlLoginFields.add(txtNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 360, 40));
@@ -122,7 +122,7 @@ public class LoginForm extends javax.swing.JFrame {
         pnlLoginFields.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, -1, -1));
 
         txtName.setBackground(new Color(0,0,0,0));
-        txtName.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
+        txtName.setFont(new Font(loadFonts(20).getFontName(),Font.TRUETYPE_FONT,18));
         txtName.setForeground(new java.awt.Color(16, 20, 20));
         txtName.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         pnlLoginFields.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 360, 40));
@@ -133,6 +133,7 @@ public class LoginForm extends javax.swing.JFrame {
         pnlLoginFields.add(lblPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, -1, -1));
 
         txtPass.setBackground(new Color(0,0,0,0));
+        txtPass.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txtPass.setForeground(new java.awt.Color(16, 20, 20));
         txtPass.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         txtPass.setEchoChar('\u00b7');
@@ -272,10 +273,10 @@ public class LoginForm extends javax.swing.JFrame {
     private void cbShowHidePass1ItemStateChanged(java.awt.event.ItemEvent evt) {// GEN-FIRST:event_cbShowHidePass1ItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             txtPass.setEchoChar((char) 0);
-            txtPass.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
+            txtPass.setFont(new Font(loadFonts(20).getFontName(),Font.TRUETYPE_FONT,18));
         } else {
             txtPass.setEchoChar('\u00b7');
-            txtPass.setFont(new Font("Segoe UI",Font.BOLD,12));
+            txtPass.setFont(new Font("Segoe UI",Font.BOLD,18));
         }
     }// GEN-LAST:event_cbShowHidePass1ItemStateChanged
 

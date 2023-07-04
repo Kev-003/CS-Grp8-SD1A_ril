@@ -27,7 +27,9 @@ public class FontManager {
         "src/main/java/res/fonts/QuinoaThin.ttf",
         "src/main/java/res/fonts/QuinoaThinItalics.ttf",
         "src/main/java/res/fonts/QuinoaUltrabold.ttf",
-        "src/main/java/res/fonts/QuinoaUltraboldItalics.ttf"
+        "src/main/java/res/fonts/QuinoaUltraboldItalics.ttf",
+        "src/main/java/res/fonts/Febrero-Light.ttf",
+        "src/main/java/res/fonts/Febrero-Regular.ttf"
 
     };
 

@@ -23,6 +23,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class HomeInterface extends javax.swing.JFrame {
 
     pnlHomeInterface roundPanel;
+    pnlAcctSettings roundPanel2;
 
     /**
      * Creates new form HomeInterface
@@ -60,8 +61,14 @@ public class HomeInterface extends javax.swing.JFrame {
         pnlMain = new javax.swing.JPanel();
         btnProfile = new javax.swing.JButton();
         lblUser = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        pnlCard = new javax.swing.JPanel();
         lblBalance = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        picCard = new javax.swing.JLabel();
+        pnlAcct = new javax.swing.JPanel();
+        btnClose = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        pnlTransac = new javax.swing.JPanel();
         lblSideBar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -137,6 +144,7 @@ public class HomeInterface extends javax.swing.JFrame {
         getContentPane().add(btnDark, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 630, 40, 40));
 
         roundPanel = new pnlHomeInterface(panelLightCol,0,50,16,pnlMain);
+        roundPanel2 = new pnlAcctSettings(new Color(14,14,40),0,50,16,pnlAcct);
         picLogotype.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/WhiteLogo2_1.png"))); // NOI18N
         getContentPane().add(picLogotype, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
@@ -162,14 +170,50 @@ public class HomeInterface extends javax.swing.JFrame {
         lblUser.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         pnlMain.add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 40, 110, 40));
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlCard.setOpaque(false);
+        pnlCard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblBalance.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,16));
         lblBalance.setForeground(defaultDarkText);
         lblBalance.setText("Balance");
-        jPanel1.add(lblBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        pnlCard.add(lblBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
-        pnlMain.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 490, 280));
+        jLabel2.setFont(new Font(loadFonts(20).getFontName(),Font.BOLD,80));
+        jLabel2.setForeground(defaultDarkText);
+        jLabel2.setText("₱0.00");
+        pnlCard.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 250, -1));
+
+        picCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/CardMockup.png"))); // NOI18N
+        pnlCard.add(picCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, -1, -1));
+
+        pnlMain.add(pnlCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 460, 320));
+
+        pnlAcct.setBackground(new java.awt.Color(14, 14, 30));
+        pnlAcct.setVisible(false);
+        pnlAcct.setBorder(roundPanel2);
+        pnlAcct.setOpaque(false);
+        pnlAcct.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnClose.setContentAreaFilled(false);
+        btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/Close.png"))); // NOI18N
+        btnClose.setBorder(null);
+        btnClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseActionPerformed(evt);
+            }
+        });
+        pnlAcct.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
+
+        jLabel1.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,35));
+        jLabel1.setForeground(defaultDarkText);
+        jLabel1.setText("Account");
+        pnlAcct.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 210, 60));
+
+        pnlMain.add(pnlAcct, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 350, 550));
+
+        pnlTransac.setOpaque(false);
+        pnlTransac.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlMain.add(pnlTransac, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 450, 150));
 
         getContentPane().add(pnlMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 970, 720));
 
@@ -190,12 +234,16 @@ public class HomeInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDarkActionPerformed
 
     private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
-        // TODO add your handling code here:
+        pnlAcct.setVisible(true);
     }//GEN-LAST:event_btnProfileActionPerformed
 
     private void btnTransactionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransactionsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTransactionsActionPerformed
+
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+        pnlAcct.setVisible(false);
+    }//GEN-LAST:event_btnCloseActionPerformed
 
     private void setToDark() {
         try {
@@ -273,18 +321,24 @@ public class HomeInterface extends javax.swing.JFrame {
     public boolean darkEnabled;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClose;
     private javax.swing.JToggleButton btnDark;
     private javax.swing.JButton btnDashboard;
     private javax.swing.JButton btnHelp;
     private javax.swing.JButton btnInbox;
     private javax.swing.JButton btnProfile;
     private javax.swing.JButton btnTransactions;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblBalance;
     private javax.swing.JLabel lblSideBar;
     private javax.swing.JLabel lblUser;
+    private javax.swing.JLabel picCard;
     private javax.swing.JLabel picLogotype;
+    private javax.swing.JPanel pnlAcct;
+    private javax.swing.JPanel pnlCard;
     private javax.swing.JPanel pnlMain;
+    private javax.swing.JPanel pnlTransac;
     // End of variables declaration//GEN-END:variables
 
     public Font loadFonts(int i) {
