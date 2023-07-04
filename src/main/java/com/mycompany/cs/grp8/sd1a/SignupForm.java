@@ -420,22 +420,22 @@ public class SignupForm extends javax.swing.JFrame {
             UIManager.setLookAndFeel(new FlatLightLaf());
 
             SwingUtilities.updateComponentTreeUI(pnlSignupFields);
-            pnlSignupFields.setBackground(DarkBG);
-            lblSignup.setForeground(defaultDarkText);
-            txtNum2.setForeground(defaultDarkText);
-            txtCreatePass.setForeground(defaultDarkText);
-            txtConfirmPass.setForeground(defaultDarkText);
+            pnlSignupFields.setBackground(LightBG);
+            lblSignup.setForeground(defaultLightText);
+            txtNum2.setForeground(defaultLightText);
+            txtCreatePass.setForeground(defaultLightText);
+            txtConfirmPass.setForeground(defaultLightText);
 
-            txtFirstName1.setForeground(defaultDarkText);
-            txtSurname1.setForeground(defaultDarkText);
-            calBday1.setForeground(defaultDarkText);
+            txtFirstName1.setForeground(defaultLightText);
+            txtSurname1.setForeground(defaultLightText);
+            calBday1.setForeground(defaultLightText);
 
-            txtNo1.setForeground(defaultDarkText);
-            txtStrt1.setForeground(defaultDarkText);
-            txtBrgy1.setForeground(defaultDarkText);
-            txtCity1.setForeground(defaultDarkText);
-            txtProvince1.setForeground(defaultDarkText);
-            txtZip1.setForeground(defaultDarkText);
+            txtNo1.setForeground(defaultLightText);
+            txtStrt1.setForeground(defaultLightText);
+            txtBrgy1.setForeground(defaultLightText);
+            txtCity1.setForeground(defaultLightText);
+            txtProvince1.setForeground(defaultLightText);
+            txtZip1.setForeground(defaultLightText);
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
         }
