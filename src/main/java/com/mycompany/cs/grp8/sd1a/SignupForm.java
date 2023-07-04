@@ -48,7 +48,8 @@ public class SignupForm extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         btnDark = new javax.swing.JToggleButton();
@@ -91,13 +92,17 @@ public class SignupForm extends javax.swing.JFrame {
         picFeatures = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setIconImage(new ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/FrameIcon.png")).getImage());
+        setIconImage(
+                new ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/FrameIcon.png")).getImage());
         setTitle("ShadiFinTech");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnDark.setBackground(new java.awt.Color(242, 242, 242));
-        btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars.png"))); // NOI18N
-        btnDark.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(242, 242, 242))); // NOI18N
+        btnDark.setIcon(
+                new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars.png"))); // NOI18N
+        btnDark.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "",
+                javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
+                new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(242, 242, 242))); // NOI18N
         btnDark.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDarkActionPerformed(evt);
@@ -105,92 +110,94 @@ public class SignupForm extends javax.swing.JFrame {
         });
         getContentPane().add(btnDark, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 40, 40));
 
-        picColorIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/ColorLogo.png"))); // NOI18N
+        picColorIcon1.setIcon(
+                new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/ColorLogo.png"))); // NOI18N
         getContentPane().add(picColorIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
 
         pnlAddressFields.setBackground(new java.awt.Color(242, 242, 242));
         pnlAddressFields.setVisible(false);
         pnlAddressFields.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtZip.setBackground(new Color(0,0,0,0));
-        txtZip.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
+        txtZip.setBackground(new Color(0, 0, 0, 0));
+        txtZip.setFont(new Font(loadFonts(9).getFontName(), Font.TRUETYPE_FONT, 18));
         txtZip.setForeground(new java.awt.Color(16, 20, 20));
         txtZip.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         pnlAddressFields.add(txtZip, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 90, 40));
 
-        lblZip.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblZip.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
         lblZip.setForeground(grayLightText);
         lblZip.setText("Zip Code");
         pnlAddressFields.add(lblZip, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, -1));
 
-        txtProvince.setBackground(new Color(0,0,0,0));
-        txtProvince.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
+        txtProvince.setBackground(new Color(0, 0, 0, 0));
+        txtProvince.setFont(new Font(loadFonts(9).getFontName(), Font.TRUETYPE_FONT, 18));
         txtProvince.setForeground(new java.awt.Color(16, 20, 20));
         txtProvince.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         pnlAddressFields.add(txtProvince, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 250, 40));
 
-        lblProvince.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblProvince.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
         lblProvince.setForeground(grayLightText);
         lblProvince.setText("Province");
         pnlAddressFields.add(lblProvince, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, -1, -1));
 
-        txtCity.setBackground(new Color(0,0,0,0));
-        txtCity.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
+        txtCity.setBackground(new Color(0, 0, 0, 0));
+        txtCity.setFont(new Font(loadFonts(9).getFontName(), Font.TRUETYPE_FONT, 18));
         txtCity.setForeground(new java.awt.Color(16, 20, 20));
         txtCity.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         pnlAddressFields.add(txtCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 170, 40));
 
-        lblCity.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblCity.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
         lblCity.setForeground(grayLightText);
         lblCity.setText("City/Town");
         pnlAddressFields.add(lblCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, -1, -1));
 
-        lblStrt.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblStrt.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
         lblStrt.setForeground(grayLightText);
         lblStrt.setText("Street/Village/Subdivision");
         pnlAddressFields.add(lblStrt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, -1));
 
-        txtStrt.setBackground(new Color(0,0,0,0));
-        txtStrt.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
+        txtStrt.setBackground(new Color(0, 0, 0, 0));
+        txtStrt.setFont(new Font(loadFonts(9).getFontName(), Font.TRUETYPE_FONT, 18));
         txtStrt.setForeground(new java.awt.Color(16, 20, 20));
         txtStrt.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         pnlAddressFields.add(txtStrt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 270, 40));
 
-        lblInfo2.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,55));
+        lblInfo2.setFont(new Font(loadFonts(0).getFontName(), Font.BOLD, 55));
         lblInfo2.setForeground(new java.awt.Color(16, 20, 20));
         lblInfo2.setText("Information");
         pnlAddressFields.add(lblInfo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 400, 90));
 
-        txtBrgy.setBackground(new Color(0,0,0,0));
-        txtBrgy.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
+        txtBrgy.setBackground(new Color(0, 0, 0, 0));
+        txtBrgy.setFont(new Font(loadFonts(9).getFontName(), Font.TRUETYPE_FONT, 18));
         txtBrgy.setForeground(new java.awt.Color(16, 20, 20));
         txtBrgy.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         pnlAddressFields.add(txtBrgy, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 170, 40));
 
-        lblBrgy.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblBrgy.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
         lblBrgy.setForeground(grayLightText);
         lblBrgy.setText("Barangay");
         pnlAddressFields.add(lblBrgy, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
 
-        lblNo.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblNo.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
         lblNo.setForeground(grayLightText);
         lblNo.setText("Bldg. No.");
         pnlAddressFields.add(lblNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
 
-        txtNo.setBackground(new Color(0,0,0,0));
-        txtNo.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
+        txtNo.setBackground(new Color(0, 0, 0, 0));
+        txtNo.setFont(new Font(loadFonts(9).getFontName(), Font.TRUETYPE_FONT, 18));
         txtNo.setForeground(new java.awt.Color(16, 20, 20));
         txtNo.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         pnlAddressFields.add(txtNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 70, 40));
 
         btnSignup.setBackground(defaultLightBtnCol);
-        btnSignup.setFont(new Font(loadFonts(9).getFontName(),Font.BOLD,20));
+        btnSignup.setFont(new Font(loadFonts(9).getFontName(), Font.BOLD, 20));
         btnSignup.setForeground(defaultLightBtnText);
         btnSignup.setText("Sign Up");
         btnSignup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnSignupMouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnSignupMouseExited(evt);
             }
@@ -214,40 +221,40 @@ public class SignupForm extends javax.swing.JFrame {
         pnlInfoFields.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         pnlInfoFields.add(calBday, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 140, 40));
 
-        lblInfo1.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,55));
+        lblInfo1.setFont(new Font(loadFonts(0).getFontName(), Font.BOLD, 55));
         lblInfo1.setForeground(new java.awt.Color(16, 20, 20));
         lblInfo1.setText("Information");
         pnlInfoFields.add(lblInfo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 400, 90));
 
-        txtSurname.setBackground(new Color(0,0,0,0));
-        txtSurname.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
+        txtSurname.setBackground(new Color(0, 0, 0, 0));
+        txtSurname.setFont(new Font(loadFonts(9).getFontName(), Font.TRUETYPE_FONT, 18));
         txtSurname.setForeground(new java.awt.Color(16, 20, 20));
         txtSurname.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         pnlInfoFields.add(txtSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 360, 40));
 
-        lblFirstName.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblFirstName.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
         lblFirstName.setForeground(grayLightText);
         lblFirstName.setText("First Name");
         pnlInfoFields.add(lblFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
 
-        txtFirstName.setBackground(new Color(0,0,0,0));
-        txtFirstName.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
+        txtFirstName.setBackground(new Color(0, 0, 0, 0));
+        txtFirstName.setFont(new Font(loadFonts(9).getFontName(), Font.TRUETYPE_FONT, 18));
         txtFirstName.setForeground(new java.awt.Color(16, 20, 20));
         txtFirstName.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         pnlInfoFields.add(txtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 360, 40));
 
-        lblSurname.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblSurname.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
         lblSurname.setForeground(grayLightText);
         lblSurname.setText("Surname");
         pnlInfoFields.add(lblSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
 
-        lblBday.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblBday.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
         lblBday.setForeground(grayLightText);
         lblBday.setText("Birth Date");
         pnlInfoFields.add(lblBday, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, -1, -1));
 
         btnNext2.setBackground(LightBG);
-        btnNext2.setFont(new Font(loadFonts(9).getFontName(),Font.PLAIN,25));
+        btnNext2.setFont(new Font(loadFonts(9).getFontName(), Font.PLAIN, 25));
         btnNext2.setForeground(hoverLightTextCol);
         btnNext2.setText("Next.");
         btnNext2.setBorder(null);
@@ -270,46 +277,46 @@ public class SignupForm extends javax.swing.JFrame {
         });
         pnlSignupFields.add(cbShowHidePass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, -1, -1));
 
-        lblSignup.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,55));
+        lblSignup.setFont(new Font(loadFonts(0).getFontName(), Font.BOLD, 55));
         lblSignup.setForeground(new java.awt.Color(16, 20, 20));
         lblSignup.setText("Create Account");
         pnlSignupFields.add(lblSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 400, 90));
 
-        txtNum2.setBackground(new Color(0,0,0,0));
-        txtNum2.setFont(new Font(loadFonts(9).getFontName(),Font.TRUETYPE_FONT,18));
+        txtNum2.setBackground(new Color(0, 0, 0, 0));
+        txtNum2.setFont(new Font(loadFonts(9).getFontName(), Font.TRUETYPE_FONT, 18));
         txtNum2.setForeground(new java.awt.Color(16, 20, 20));
         txtNum2.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         pnlSignupFields.add(txtNum2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 360, 40));
 
-        txtCreatePass.setBackground(new Color(0,0,0,0));
+        txtCreatePass.setBackground(new Color(0, 0, 0, 0));
         txtCreatePass.setForeground(new java.awt.Color(16, 20, 20));
-        txtCreatePass.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0,grayLightText));
+        txtCreatePass.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         txtCreatePass.setEchoChar('\u00b7');
         pnlSignupFields.add(txtCreatePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 360, 40));
 
-        lblNum1.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblNum1.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
         lblNum1.setForeground(grayLightText);
         lblNum1.setText("Account Number");
         pnlSignupFields.add(lblNum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
 
-        lblCreatePass.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblCreatePass.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
         lblCreatePass.setForeground(grayLightText);
         lblCreatePass.setText("Create Password");
         pnlSignupFields.add(lblCreatePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
 
-        lblConfirmPass.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblConfirmPass.setFont(new Font(loadFonts(7).getFontName(), Font.PLAIN, 16));
         lblConfirmPass.setForeground(grayLightText);
         lblConfirmPass.setText("Confirm Password");
         pnlSignupFields.add(lblConfirmPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, -1, -1));
 
-        txtConfirmPass.setBackground(new Color(0,0,0,0));
+        txtConfirmPass.setBackground(new Color(0, 0, 0, 0));
         txtConfirmPass.setForeground(new java.awt.Color(16, 20, 20));
         txtConfirmPass.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
         txtConfirmPass.setEchoChar('\u00b7');
         pnlSignupFields.add(txtConfirmPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 360, 40));
 
         btnNext1.setBackground(LightBG);
-        btnNext1.setFont(new Font(loadFonts(9).getFontName(),Font.PLAIN,25));
+        btnNext1.setFont(new Font(loadFonts(9).getFontName(), Font.PLAIN, 25));
         btnNext1.setForeground(hoverLightTextCol);
         btnNext1.setText("Next.");
         btnNext1.setBorder(null);
@@ -368,13 +375,24 @@ public class SignupForm extends javax.swing.JFrame {
             con = obj.getConnection(); // Establish database connection
             String accountNum = txtNum2.getText();
             String userPass = Arrays.toString(txtConfirmPass.getPassword());
-            insert = con.prepareStatement("insert into tblaccount(accountNum,userPass)values(?,?)");
+            insert = con.prepareStatement(
+                    "insert into tblaccount(accountNum,userPass,firstName,lastName,birthDate,bldgNo,street,baranggay,city,province,zipCode)values(?,?,?,?,?,?,?,?,?,?,?)");
             insert.setString(1, accountNum);
             insert.setString(2, userPass);
+            insert.setString(3, "Pending");
+            insert.setString(4, "Pending");
+            insert.setString(5, "1234-01-01");
+            insert.setString(6, "Pending");
+            insert.setString(7, "Pending");
+            insert.setString(8, "Pending");
+            insert.setString(9, "Pending");
+            insert.setString(10, "Pending");
+            insert.setString(11, "1234");
             insert.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Record Added!");
+            JOptionPane.showMessageDialog(this, "Record Added!"); // For testing
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "Cannot access database: " + ex.getMessage());
+            JOptionPane.showMessageDialog(this, "Database error: " + ex.getMessage()); // Display a user-friendly error
+                                                                                       // message
         } finally {
             dbConnection.closeConnection(); // Terminate connection
         }
@@ -391,6 +409,22 @@ public class SignupForm extends javax.swing.JFrame {
     private void btnNext2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnNext2ActionPerformed
         pnlInfoFields.setVisible(false);
         pnlAddressFields.setVisible(true);
+        /*
+        try {
+            con = obj.getConnection();
+            String firstName = txtFirstName.getText();
+            String lastName = txtSurname.getText();
+            insert = con.prepareStatement("insert into tblaccount(firstName,lastName)values(?,?)");
+            insert.setString(1, firstName);
+            insert.setString(2, lastName);
+            insert.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Record Added!"); // For testing
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Database error: " + ex.getMessage());
+        } finally {
+            dbConnection.closeConnection();
+        }
+        */
     }// GEN-LAST:event_btnNext2ActionPerformed
 
     private void btnSignupMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btnSignupMouseEntered
@@ -409,7 +443,7 @@ public class SignupForm extends javax.swing.JFrame {
         try {
             this.getRootPane().putClientProperty("JRootPane.titleBarBackground", DarkBG);
             this.getRootPane().putClientProperty("JRootPane.titleBarForeground", defaultDarkText);
-            
+
             btnDark.setBackground(DarkBG);
             btnDark.setIcon(new javax.swing.ImageIcon(
                     getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars1.png")));
@@ -459,7 +493,7 @@ public class SignupForm extends javax.swing.JFrame {
         try {
             this.getRootPane().putClientProperty("JRootPane.titleBarBackground", LightBG);
             this.getRootPane().putClientProperty("JRootPane.titleBarForeground", defaultLightText);
-            
+
             btnDark.setBackground(LightBG);
             btnDark.setIcon(new javax.swing.ImageIcon(
                     getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars.png")));
