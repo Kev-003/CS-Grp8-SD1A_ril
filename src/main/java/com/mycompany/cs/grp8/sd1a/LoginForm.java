@@ -12,6 +12,7 @@ import javax.swing.BorderFactory;
 import javax.swing.UIManager;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.FlatDarculaLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
 import res.fonts.FontManager;
 import java.sql.Connection;
 import com.mysql.cj.jdbc.result.ResultSetMetaData;
@@ -307,7 +308,7 @@ public class LoginForm extends javax.swing.JFrame {
                     getClass().getResource("/com/mycompany/cs/grp8/res/images/ColorLogo.png")));
 
             darkEnabled = true;
-            UIManager.setLookAndFeel(new FlatDarculaLaf());
+            UIManager.setLookAndFeel(new FlatDarkLaf());
             SwingUtilities.updateComponentTreeUI(pnlLoginFields);
             pnlLoginFields.setBackground(DarkBG);
             lblLogin.setForeground(defaultDarkText);

@@ -13,6 +13,7 @@ import javax.swing.BorderFactory;
 import javax.swing.UIManager;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatDarculaLaf;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -20,10 +21,16 @@ import java.awt.event.ActionListener;
 import javax.swing.SwingUtilities;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.awt.Desktop;
+
+
 public class HomeInterface extends javax.swing.JFrame {
 
     pnlHomeInterface roundPanel;
     pnlAcctSettings roundPanel2;
+    pnlAcctSettings roundPanel3;
 
     /**
      * Creates new form HomeInterface
@@ -34,7 +41,7 @@ public class HomeInterface extends javax.swing.JFrame {
      */
     public HomeInterface(boolean darkEnabled) throws FontFormatException, IOException {
         this.darkEnabled = darkEnabled;
-        UIManager.put("Button.arc", 999);
+        UIManager.put("Button.arc", 20);
 
         initComponents();
 
@@ -64,6 +71,19 @@ public class HomeInterface extends javax.swing.JFrame {
         pnlMain = new javax.swing.JPanel();
         btnProfile = new javax.swing.JButton();
         lblUser = new javax.swing.JLabel();
+        pnlInbox = new javax.swing.JPanel();
+        lblTransactions1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        pnlTransactions = new javax.swing.JPanel();
+        lblHistory = new javax.swing.JLabel();
+        lblTransactions = new javax.swing.JLabel();
+        btnLoan = new javax.swing.JButton();
+        btnBills = new javax.swing.JButton();
+        btnCashIn = new javax.swing.JButton();
+        btnSendMoney = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         pnlDashboard = new javax.swing.JPanel();
         pnlCard = new javax.swing.JPanel();
         lblBalance = new javax.swing.JLabel();
@@ -71,12 +91,21 @@ public class HomeInterface extends javax.swing.JFrame {
         lblAmount = new javax.swing.JLabel();
         picCard = new javax.swing.JLabel();
         pnlTransac = new javax.swing.JPanel();
-        btnMore = new javax.swing.JButton();
+        lblNum1 = new javax.swing.JLabel();
+        lblNum = new javax.swing.JLabel();
+        txtNum = new javax.swing.JTextField();
+        lblQuickTransac = new javax.swing.JLabel();
+        txtNum1 = new javax.swing.JTextField();
         btnSend = new javax.swing.JButton();
-        btnCashIn = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        lblLastTransac = new javax.swing.JLabel();
+        lblAmount2 = new javax.swing.JLabel();
+        lblTransacName = new javax.swing.JLabel();
         pnlAcct = new javax.swing.JPanel();
         btnClose = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblAccount = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
+        btnChangePass = new javax.swing.JButton();
         lblSideBar = new javax.swing.JLabel();
 
         ActionListener menuButtonListener = new ActionListener() {
@@ -184,6 +213,7 @@ public class HomeInterface extends javax.swing.JFrame {
 
         roundPanel = new pnlHomeInterface(LightBG,0,50,16,pnlMain);
         roundPanel2 = new pnlAcctSettings(defaultLightText,0,50,16,pnlAcct);
+        roundPanel3 = new pnlAcctSettings(panelLightCol,0,50,16,pnlTransac);
         picLogotype.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/WhiteLogo2_1.png"))); // NOI18N
         getContentPane().add(picLogotype, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
@@ -203,11 +233,117 @@ public class HomeInterface extends javax.swing.JFrame {
         });
         pnlMain.add(btnProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 40, -1, -1));
 
-        lblUser.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,16));
+        lblUser.setFont(new Font(loadFonts(20).getFontName(),Font.BOLD,16));
         lblUser.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUser.setText("User Name");
         lblUser.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         pnlMain.add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 40, 110, 40));
+
+        pnlInbox.setVisible(false);
+        pnlInbox.setBackground(LightBG);
+        pnlInbox.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTransactions1.setBackground(hoverLightTextCol);
+        lblTransactions1.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,35));
+        lblTransactions1.setForeground(hoverLightTextCol);
+        lblTransactions1.setText("Notifications");
+        pnlInbox.add(lblTransactions1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 380, 60));
+
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTable2.setFont(new Font(loadFonts(20).getFontName(),Font.BOLD,16));
+        jTable2.setForeground(grayLightText);
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable2.setOpaque(false);
+        jScrollPane2.setViewportView(jTable2);
+
+        pnlInbox.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, 540));
+
+        pnlMain.add(pnlInbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 520, 680));
+
+        pnlTransactions.setVisible(false);
+        pnlTransactions.setBackground(LightBG);
+        pnlTransactions.setOpaque(false);
+        pnlTransactions.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblHistory.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,16));
+        lblHistory.setForeground(hoverLightTextCol);
+        lblHistory.setText("History");
+        pnlTransactions.add(lblHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 130, -1));
+
+        lblTransactions.setBackground(hoverLightTextCol);
+        lblTransactions.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,35));
+        lblTransactions.setForeground(hoverLightTextCol);
+        lblTransactions.setText("Transactions");
+        pnlTransactions.add(lblTransactions, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 380, 60));
+
+        btnLoan.setFont(new Font(loadFonts(9).getFontName(),Font.PLAIN,16));
+        btnLoan.setForeground(grayLightText);
+        btnLoan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/Loan.png"))); // NOI18N
+        btnLoan.setText("Loan");
+        btnLoan.setBorderPainted(false);
+        btnLoan.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnLoan.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        pnlTransactions.add(btnLoan, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, -1, 70));
+
+        btnBills.setFont(new Font(loadFonts(9).getFontName(),Font.PLAIN,16));
+        btnBills.setForeground(grayLightText);
+        btnBills.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/Bills.png"))); // NOI18N
+        btnBills.setText("Bills");
+        btnBills.setBorderPainted(false);
+        btnBills.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBills.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        pnlTransactions.add(btnBills, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, 70));
+
+        btnCashIn.setFont(new Font(loadFonts(9).getFontName(),Font.PLAIN,16));
+        btnCashIn.setForeground(grayLightText);
+        btnCashIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/CashIn.png"))); // NOI18N
+        btnCashIn.setText("Cash In");
+        btnCashIn.setBorderPainted(false);
+        btnCashIn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCashIn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        pnlTransactions.add(btnCashIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, 70));
+
+        btnSendMoney.setFont(new Font(loadFonts(9).getFontName(),Font.PLAIN,16));
+        btnSendMoney.setForeground(grayLightText);
+        btnSendMoney.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/Send.png"))); // NOI18N
+        btnSendMoney.setText("Send");
+        btnSendMoney.setBorderPainted(false);
+        btnSendMoney.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSendMoney.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        pnlTransactions.add(btnSendMoney, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, 70));
+
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTable1.setFont(new Font(loadFonts(20).getFontName(),Font.BOLD,16));
+        jTable1.setForeground(grayLightText);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable1.setOpaque(false);
+        jScrollPane1.setViewportView(jTable1);
+
+        pnlTransactions.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, 370));
+
+        pnlMain.add(pnlTransactions, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 520, 680));
 
         pnlDashboard.setOpaque(false);
         pnlDashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -239,43 +375,64 @@ public class HomeInterface extends javax.swing.JFrame {
 
         pnlDashboard.add(pnlCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 460, 320));
 
+        pnlTransac.setBackground(new Color(206,206,206));
+        pnlTransac.setBorder(roundPanel3);
         pnlTransac.setOpaque(false);
         pnlTransac.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnMore.setBackground(LightBG);
-        btnMore.setFont(new Font(loadFonts(9).getFontName(),Font.BOLD,14));
-        btnMore.setForeground(hoverLightBtnCol);
-        btnMore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/More.png"))); // NOI18N
-        btnMore.setText("More");
-        btnMore.setBorderPainted(false);
-        btnMore.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnMore.setIconTextGap(10);
-        btnMore.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        pnlTransac.add(btnMore, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 130, 130));
+        lblNum1.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblNum1.setForeground(grayLightText);
+        lblNum1.setText("Amount");
+        pnlTransac.add(lblNum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, -1));
 
-        btnSend.setBackground(LightBG);
-        btnSend.setFont(new Font(loadFonts(9).getFontName(),Font.BOLD,14));
-        btnSend.setForeground(grayLightText);
+        lblNum.setFont(new Font(loadFonts(7).getFontName(),Font.PLAIN,16));
+        lblNum.setForeground(grayLightText);
+        lblNum.setText("Account Number");
+        pnlTransac.add(lblNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+
+        txtNum.setBackground(new Color(0,0,0,0));
+        txtNum.setFont(new Font(loadFonts(20).getFontName(),Font.TRUETYPE_FONT,18));
+        txtNum.setForeground(new java.awt.Color(16, 20, 20));
+        txtNum.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
+        pnlTransac.add(txtNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 170, 30));
+
+        lblQuickTransac.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,16));
+        lblQuickTransac.setForeground(defaultLightText);
+        lblQuickTransac.setText("Quick Transaction");
+        pnlTransac.add(lblQuickTransac, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 170, 30));
+
+        txtNum1.setBackground(new Color(0,0,0,0));
+        txtNum1.setFont(new Font(loadFonts(20).getFontName(),Font.TRUETYPE_FONT,18));
+        txtNum1.setForeground(new java.awt.Color(16, 20, 20));
+        txtNum1.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, grayLightText));
+        pnlTransac.add(txtNum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 110, 30));
+
         btnSend.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/SendMoney.png"))); // NOI18N
-        btnSend.setText("Send Money");
         btnSend.setBorderPainted(false);
-        btnSend.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnSend.setIconTextGap(10);
-        btnSend.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        pnlTransac.add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 130, 130));
+        pnlTransac.add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 30, 30));
 
-        btnCashIn.setBackground(LightBG);
-        btnCashIn.setFont(new Font(loadFonts(9).getFontName(),Font.BOLD,14));
-        btnCashIn.setForeground(grayLightText);
-        btnCashIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/CashIn_1.png"))); // NOI18N
-        btnCashIn.setText("Cash In");
-        btnCashIn.setBorderPainted(false);
-        btnCashIn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnCashIn.setIconTextGap(10);
-        btnCashIn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        pnlTransac.add(btnCashIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 130));
+        pnlDashboard.add(pnlTransac, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 450, 130));
 
-        pnlDashboard.add(pnlTransac, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 460, 150));
+        jPanel1.setBorder(roundPanel3);
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblLastTransac.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,16));
+        lblLastTransac.setForeground(defaultLightText);
+        lblLastTransac.setText("Last Transaction");
+        jPanel1.add(lblLastTransac, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 170, 30));
+
+        lblAmount2.setFont(new Font(loadFonts(20).getFontName(),Font.BOLD,16));
+        lblAmount2.setForeground(grayLightText);
+        lblAmount2.setText("0.00");
+        jPanel1.add(lblAmount2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 110, -1));
+
+        lblTransacName.setFont(new Font(loadFonts(20).getFontName(),Font.BOLD,16));
+        lblTransacName.setForeground(defaultDarkBtnText);
+        lblTransacName.setText("---");
+        jPanel1.add(lblTransacName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 160, -1));
+
+        pnlDashboard.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, 450, 70));
 
         pnlMain.add(pnlDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 520, 680));
 
@@ -295,10 +452,51 @@ public class HomeInterface extends javax.swing.JFrame {
         });
         pnlAcct.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
 
-        jLabel1.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,35));
-        jLabel1.setForeground(defaultDarkText);
-        jLabel1.setText("Account");
-        pnlAcct.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 210, 60));
+        lblAccount.setFont(new Font(loadFonts(0).getFontName(),Font.BOLD,35));
+        lblAccount.setForeground(defaultDarkText);
+        lblAccount.setText("Account");
+        pnlAcct.add(lblAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 210, 60));
+
+        btnLogout.setBackground(defaultLightText);
+        btnLogout.setFont(new Font(loadFonts(11).getFontName(),Font.PLAIN,16));
+        btnLogout.setForeground(grayLightText);
+        btnLogout.setText("Log Out");
+        btnLogout.setBorderPainted(false);
+        btnLogout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnLogout.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnLogout.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseExited(evt);
+            }
+        });
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        pnlAcct.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 230, 40));
+
+        btnChangePass.setBackground(defaultLightText);
+        btnChangePass.setFont(new Font(loadFonts(11).getFontName(),Font.PLAIN,16));
+        btnChangePass.setForeground(grayLightText);
+        btnChangePass.setText("Change Password");
+        btnChangePass.setBorderPainted(false);
+        btnChangePass.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnChangePass.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnChangePass.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnChangePass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnChangePassMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnChangePassMouseExited(evt);
+            }
+        });
+        pnlAcct.add(btnChangePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 230, 40));
 
         pnlMain.add(pnlAcct, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 350, 550));
 
@@ -363,37 +561,85 @@ public class HomeInterface extends javax.swing.JFrame {
     private void rbtnHelpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtnHelpMouseExited
         rbtnHelp.setContentAreaFilled(false);
     }//GEN-LAST:event_rbtnHelpMouseExited
-    
+
+    private void btnChangePassMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChangePassMouseEntered
+        btnChangePass.setForeground(menubuttonSelected);
+    }//GEN-LAST:event_btnChangePassMouseEntered
+
+    private void btnChangePassMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChangePassMouseExited
+        btnChangePass.setForeground(grayLightText);
+    }//GEN-LAST:event_btnChangePassMouseExited
+
+    private void btnLogoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseEntered
+        btnLogout.setForeground(menubuttonSelected);
+    }//GEN-LAST:event_btnLogoutMouseEntered
+
+    private void btnLogoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseExited
+        btnLogout.setForeground(grayLightText);
+    }//GEN-LAST:event_btnLogoutMouseExited
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        dispose();
+        LoginForm.openForm();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
     private void menuSelection(java.awt.event.ActionEvent evt) {
-        
+
         if (evt.getSource().equals(rbtnDashboard)) {
             pnlDashboard.setVisible(true);
+            pnlTransactions.setVisible(false);
+            pnlInbox.setVisible(false);
         } else if (evt.getSource().equals(rbtnTransac)) {
             pnlDashboard.setVisible(false);
+            pnlTransactions.setVisible(true);
+            pnlInbox.setVisible(false);
         } else if (evt.getSource().equals(rbtnInbox)) {
             pnlDashboard.setVisible(false);
+            pnlTransactions.setVisible(false);
+            pnlInbox.setVisible(true);
         } else if (evt.getSource().equals(rbtnHelp)) {
             pnlDashboard.setVisible(false);
+            pnlTransactions.setVisible(false);
+            pnlInbox.setVisible(false);
+
+            try {
+
+                String url = "https://www.youtube.com/watch?v=QB7ACr7pUuE";
+
+                Desktop dt = Desktop.getDesktop();
+                URI uri = new URI(url);
+                dt.browse(uri.resolve(uri));
+
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(HomeInterface.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(HomeInterface.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
     }
-    
+
     private void setToDark() {
         try {
             this.getRootPane().putClientProperty("JRootPane.titleBarBackground", DarkBG);
             this.getRootPane().putClientProperty("JRootPane.titleBarForeground", defaultDarkText);
-       
+
             btnDark.setBackground(DarkBG);
             btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars1.png")));
 
             darkEnabled = true;
-            UIManager.setLookAndFeel(new FlatDarculaLaf());
+            UIManager.setLookAndFeel(new FlatDarkLaf());
             SwingUtilities.updateComponentTreeUI(pnlMain);
+            UIManager.put("Button.arc", 20);
             pnlMain.setBackground(null);
             roundPanel.setColor(DarkBG);
             getContentPane().setBackground(DarkBG);
-            
+
             lblUser.setForeground(defaultDarkText);
             btnProfile.setBackground(DarkBG);
+            lblQuickTransac.setForeground(defaultDarkText);
+            roundPanel3.setColor(panelDarkCol);
+            lblLastTransac.setForeground(defaultDarkText);
 
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
@@ -404,19 +650,24 @@ public class HomeInterface extends javax.swing.JFrame {
         try {
             this.getRootPane().putClientProperty("JRootPane.titleBarBackground", LightBG);
             this.getRootPane().putClientProperty("JRootPane.titleBarForeground", defaultLightText);
-            
+
             btnDark.setBackground(LightBG);
             btnDark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars.png")));
 
             darkEnabled = false;
             UIManager.setLookAndFeel(new FlatLightLaf());
             SwingUtilities.updateComponentTreeUI(pnlMain);
+            UIManager.put("Button.arc", 20);
             pnlMain.setBackground(null);
             roundPanel.setColor(LightBG);
             getContentPane().setBackground(LightBG);
-            
+
             lblUser.setForeground(defaultLightText);
             btnProfile.setBackground(LightBG);
+            lblQuickTransac.setForeground(defaultLightText);
+            roundPanel3.setColor(panelLightCol);
+            lblLastTransac.setForeground(defaultLightText);
+
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -436,7 +687,7 @@ public class HomeInterface extends javax.swing.JFrame {
     private final Color panelLightCol = new Color(253, 253, 253);
 
     private final Color grayLightText = new Color(129, 131, 131);
-    private final Color menubuttonSelected = new Color (117,115,174);
+    private final Color menubuttonSelected = new Color(117, 115, 174);
 
     private final Color defaultDarkBtnCol = new Color(242, 242, 242);
     private final Color hoverDarkBtnCol = new Color(224, 225, 225);
@@ -450,17 +701,35 @@ public class HomeInterface extends javax.swing.JFrame {
     public boolean darkEnabled;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBills;
     private javax.swing.JButton btnCashIn;
+    private javax.swing.JButton btnChangePass;
     private javax.swing.JButton btnClose;
     private javax.swing.JToggleButton btnDark;
-    private javax.swing.JButton btnMore;
+    private javax.swing.JButton btnLoan;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnProfile;
     private javax.swing.JButton btnSend;
+    private javax.swing.JButton btnSendMoney;
     private javax.swing.ButtonGroup btngrpMenu;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JLabel lblAccount;
     private javax.swing.JLabel lblAmount;
+    private javax.swing.JLabel lblAmount2;
     private javax.swing.JLabel lblBalance;
+    private javax.swing.JLabel lblHistory;
+    private javax.swing.JLabel lblLastTransac;
+    private javax.swing.JLabel lblNum;
+    private javax.swing.JLabel lblNum1;
+    private javax.swing.JLabel lblQuickTransac;
     private javax.swing.JLabel lblSideBar;
+    private javax.swing.JLabel lblTransacName;
+    private javax.swing.JLabel lblTransactions;
+    private javax.swing.JLabel lblTransactions1;
     private javax.swing.JLabel lblUser;
     private javax.swing.JLabel picCard;
     private javax.swing.JLabel picLogotype;
@@ -468,12 +737,16 @@ public class HomeInterface extends javax.swing.JFrame {
     private javax.swing.JPanel pnlAcct;
     private javax.swing.JPanel pnlCard;
     private javax.swing.JPanel pnlDashboard;
+    private javax.swing.JPanel pnlInbox;
     private javax.swing.JPanel pnlMain;
     private javax.swing.JPanel pnlTransac;
+    private javax.swing.JPanel pnlTransactions;
     private javax.swing.JRadioButton rbtnDashboard;
     private javax.swing.JRadioButton rbtnHelp;
     private javax.swing.JRadioButton rbtnInbox;
     private javax.swing.JRadioButton rbtnTransac;
+    private javax.swing.JTextField txtNum;
+    private javax.swing.JTextField txtNum1;
     // End of variables declaration//GEN-END:variables
 
     public Font loadFonts(int i) {
