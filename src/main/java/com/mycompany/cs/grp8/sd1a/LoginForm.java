@@ -153,7 +153,12 @@ public class LoginForm extends javax.swing.JFrame {
         });
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
+                try {
+                    btnLoginActionPerformed(evt);
+                } catch (FontFormatException | IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
         pnlLoginFields.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 540, 130, 40));
@@ -292,6 +297,9 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void setToDark() {
         try {
+            this.getRootPane().putClientProperty("JRootPane.titleBarBackground", DarkBG);
+            this.getRootPane().putClientProperty("JRootPane.titleBarForeground", defaultDarkText);
+            
             btnDark.setBackground(DarkBG);
             btnDark.setIcon(new javax.swing.ImageIcon(
                     getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars1.png")));
@@ -314,6 +322,9 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void setToLight() {
         try {
+            this.getRootPane().putClientProperty("JRootPane.titleBarBackground", LightBG);
+            this.getRootPane().putClientProperty("JRootPane.titleBarForeground", defaultLightText);
+            
             btnDark.setBackground(LightBG);
             btnDark.setIcon(new javax.swing.ImageIcon(
                     getClass().getResource("/com/mycompany/cs/grp8/res/images/moon-stars.png")));
@@ -342,7 +353,7 @@ public class LoginForm extends javax.swing.JFrame {
         btnLogin.setBackground(hoverLightBtnCol);
     }// GEN-LAST:event_btnLoginMouseExited
 
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnLoginActionPerformed
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) throws FontFormatException, IOException {// GEN-FIRST:event_btnLoginActionPerformed
         String accNum = txtNum.getText();
         String accName = txtName.getText();
         String accPass = txtPass.getText();
