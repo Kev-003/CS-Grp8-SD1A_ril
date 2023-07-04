@@ -63,7 +63,8 @@ public class HomeInterface extends javax.swing.JFrame {
         lblUser = new javax.swing.JLabel();
         pnlCard = new javax.swing.JPanel();
         lblBalance = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        picPeso = new javax.swing.JLabel();
+        lblAmount = new javax.swing.JLabel();
         picCard = new javax.swing.JLabel();
         pnlAcct = new javax.swing.JPanel();
         btnClose = new javax.swing.JButton();
@@ -178,10 +179,19 @@ public class HomeInterface extends javax.swing.JFrame {
         lblBalance.setText("Balance");
         pnlCard.add(lblBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
-        jLabel2.setFont(new Font(loadFonts(20).getFontName(),Font.BOLD,80));
-        jLabel2.setForeground(defaultDarkText);
-        jLabel2.setText("₱0.00");
-        pnlCard.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 250, -1));
+        picPeso.setFont(new Font(loadFonts(20).getFontName(),Font.BOLD,80));
+        picPeso.setForeground(defaultDarkText);
+        picPeso.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        picPeso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/Peso.png"))); // NOI18N
+        picPeso.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        picPeso.setIconTextGap(7);
+        picPeso.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        pnlCard.add(picPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 90, -1));
+
+        lblAmount.setFont(new Font(loadFonts(20).getFontName(),Font.BOLD,80));
+        lblAmount.setForeground(defaultDarkText);
+        lblAmount.setText("0.00");
+        pnlCard.add(lblAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 260, -1));
 
         picCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/CardMockup.png"))); // NOI18N
         pnlCard.add(picCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, -1, -1));
@@ -329,12 +339,13 @@ public class HomeInterface extends javax.swing.JFrame {
     private javax.swing.JButton btnProfile;
     private javax.swing.JButton btnTransactions;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblAmount;
     private javax.swing.JLabel lblBalance;
     private javax.swing.JLabel lblSideBar;
     private javax.swing.JLabel lblUser;
     private javax.swing.JLabel picCard;
     private javax.swing.JLabel picLogotype;
+    private javax.swing.JLabel picPeso;
     private javax.swing.JPanel pnlAcct;
     private javax.swing.JPanel pnlCard;
     private javax.swing.JPanel pnlMain;
