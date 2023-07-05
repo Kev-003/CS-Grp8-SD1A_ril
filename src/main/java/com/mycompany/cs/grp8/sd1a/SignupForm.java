@@ -353,7 +353,7 @@ public class SignupForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Database error: " + ex.getMessage()); // Display a user-friendly error
                                                                                        // message
         } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(SignupForm.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Resource error: " + ex.getMessage());
         } finally {
             dbConnection.closeConnection(); // Terminate connection
         }

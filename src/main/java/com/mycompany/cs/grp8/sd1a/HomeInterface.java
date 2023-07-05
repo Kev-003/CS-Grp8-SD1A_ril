@@ -601,7 +601,7 @@ public class HomeInterface extends javax.swing.JFrame {
         getContentPane().add(lblSideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>//GEN-END:initComponents```
 
     private void btnSendMoneyActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSendMoneyActionPerformed
 
