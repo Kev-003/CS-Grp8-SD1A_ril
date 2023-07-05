@@ -83,6 +83,11 @@ public class HomeInterface extends javax.swing.JFrame {
         lblUser.setText(Records.getName()); // Use class reference to invoke the getter method in Records class
     }
 
+    // Variables used for SQL coonnection
+    Connection con;
+    PreparedStatement insert;
+    dbConnection obj = new dbConnection();
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -610,21 +615,37 @@ public class HomeInterface extends javax.swing.JFrame {
         } else {
             UIManager.put("OptionPane.background", LightBG);
         }
+
         JTextField accNum = new JTextField();
         JTextField amt = new JTextField();
         Object[] message = {
                 "Account Number:", accNum,
                 "Amount:", amt
         };
-        JOptionPane.showConfirmDialog(null, message, "Send Money", JOptionPane.DEFAULT_OPTION);
-
-        Date date = new Date();
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-
-        Object[] tblData = { "Send Money", amt.getText(), formatter.format(date) };
-
-        model.addRow(tblData);
+        int result = JOptionPane.showConfirmDialog(null, message, "Send Money", JOptionPane.OK_CANCEL_OPTION);
+        if (result == JOptionPane.OK_OPTION) {
+            try {
+                // Retrieve the entered amount and perform validation
+                double amount = Double.parseDouble(amt.getText());
+                double currentBalance = Double.parseDouble(lblAmount.getText());
+                if (amount > 0 && amount <= currentBalance) {
+                    double updatedBalance = currentBalance - amount;
+                    lblAmount.setText(String.valueOf(updatedBalance)); // Update the balance label
+                    lblAmount2.setText(String.valueOf(amount)); // Update the balance label in quick transactions
+                    lblTransacName.setText("Send Money");
+                    updateBal(updatedBalance); // Update the balance in the database
+                    // Add transaction record to the table
+                    Date date = new Date();
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                    Object[] tblData = { "Send Money", String.valueOf(amount), formatter.format(date) };
+                    model.addRow(tblData);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Invalid amount or insufficient balance");
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "Invalid amount");
+            }
+        }
     }// GEN-LAST:event_btnSendMoneyActionPerformed
 
     private void btnCashInActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCashInActionPerformed
@@ -634,49 +655,81 @@ public class HomeInterface extends javax.swing.JFrame {
             UIManager.put("OptionPane.background", LightBG);
         }
 
+        // Display input dialog for the amount to cash in
         JTextField amt = new JTextField();
-        Object[] message = {
-                "Amount:", amt
-        };
-        JOptionPane.showConfirmDialog(null, message, "Cash In", JOptionPane.DEFAULT_OPTION);
+        Object[] message = { "Amount:", amt };
+        int result = JOptionPane.showConfirmDialog(null, message, "Cash In", JOptionPane.OK_CANCEL_OPTION);
+        if (result == JOptionPane.OK_OPTION) {
+            try {
+                // Retrieve the entered amount and perform validation
+                double amount = Double.parseDouble(amt.getText());
+                if (amount > 0) {
+                    double currentBalance = Double.parseDouble(lblAmount.getText());
+                    double updatedBalance = currentBalance + amount;
+                    lblAmount.setText(String.valueOf(amount)); // Update the balance label
+                    lblAmount2.setText(String.valueOf(updatedBalance)); // Update the balance label in quick
+                                                                        // transactions
+                    lblTransacName.setText("Cash In");
+                    updateBal(updatedBalance); // Update the balance in the database
+                    // Add transaction record to the table
+                    Date date = new Date();
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                    Object[] tblData = { "Cash In", String.valueOf(amount), formatter.format(date) };
+                    model.addRow(tblData);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Invalid amount");
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "Invalid amount");
+            }
+        }
+    }
 
-        Date date = new Date();
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-mm-yyyy");
-
-        Object[] tblData = { "Cash In", amt.getText(), formatter.format(date) };
-
-        model.addRow(tblData);
-    }// GEN-LAST:event_btnCashInActionPerformed
-
-    private void btnBillsActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnBillsActionPerformed
-        // TODO add your handling code here:
-
+    private void btnBillsActionPerformed(java.awt.event.ActionEvent evt) {
         if (darkEnabled) {
             UIManager.put("OptionPane.background", DarkBG);
         } else {
             UIManager.put("OptionPane.background", LightBG);
         }
-        JComboBox billPay = new JComboBox();
+        // Display input dialog for the bill recipient and amount
+        JComboBox<String> billPay = new JComboBox<>();
         billPay.addItem("Electricity");
         billPay.addItem("Water");
         billPay.addItem("Internet");
-
         JTextField amt = new JTextField();
         Object[] message = {
                 "Recipient:", billPay,
                 "Amount:", amt
         };
-        JOptionPane.showConfirmDialog(null, message, "Pay Bills", JOptionPane.DEFAULT_OPTION);
-
-        Date date = new Date();
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-mm-yyyy");
-
-        Object[] tblData = { "Bills", amt.getText(), formatter.format(date) };
-
-        model.addRow(tblData);
-    }// GEN-LAST:event_btnBillsActionPerformed
+        int result = JOptionPane.showConfirmDialog(null, message, "Pay Bills", JOptionPane.OK_CANCEL_OPTION);
+        if (result == JOptionPane.OK_OPTION) {
+            try {
+                // Retrieve the entered amount and perform validation
+                double amount = Double.parseDouble(amt.getText());
+                if (amount > 0) {
+                    double currentBalance = Double.parseDouble(lblAmount.getText());
+                    if (amount <= currentBalance) {
+                        double updatedBalance = currentBalance - amount;
+                        lblAmount.setText(String.valueOf(updatedBalance)); // Update the balance label
+                        lblAmount2.setText(String.valueOf(amount)); // Update the balance label in quick transactions
+                        lblTransacName.setText("Bills Payment");
+                        updateBal(updatedBalance); // Update the balance in the database
+                        // Add transaction record to the table
+                        Date date = new Date();
+                        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                        Object[] tblData = { "Bills", String.valueOf(amount), formatter.format(date) };
+                        model.addRow(tblData);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Insufficient balance");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Invalid amount");
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "Invalid amount");
+            }
+        }
+    }
 
     private void btnLoanActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnLoanActionPerformed
         // TODO add your handling code here:
@@ -687,20 +740,61 @@ public class HomeInterface extends javax.swing.JFrame {
             UIManager.put("OptionPane.background", LightBG);
         }
 
+        // Display input dialog for the loan amount
         JTextField loanAmt = new JTextField();
         Object[] message = {
                 "Amount to be loaned:", loanAmt
         };
-        JOptionPane.showConfirmDialog(null, message, "Request a Loan", JOptionPane.DEFAULT_OPTION);
+        int result = JOptionPane.showConfirmDialog(null, message, "Request a Loan", JOptionPane.OK_CANCEL_OPTION);
+        if (result == JOptionPane.OK_OPTION) {
+            try {
+                // Retrieve the entered amount and perform validation
+                double amount = Double.parseDouble(loanAmt.getText());
+                if (amount > 0) {
+                    double currentBalance = Double.parseDouble(lblAmount.getText());
+                    double updatedBalance = currentBalance + amount;
+                    lblAmount.setText(String.valueOf(updatedBalance)); // Update the balance label
+                    lblAmount2.setText(String.valueOf(amount)); // Update the balance label in quick transactions
+                    lblTransacName.setText("Loan");
+                    updateBal(updatedBalance); // Update the balance in the database
+                    // Add transaction record to the table
+                    Date date = new Date();
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                    Object[] tblData = { "Loan", String.valueOf(amount), formatter.format(date) };
+                    model.addRow(tblData);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Invalid amount");
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "Invalid amount" + ex.getMessage());
+            }
+        }
+    }
 
-        Date date = new Date();
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-mm-yyyy");
-
-        Object[] tblData = { "Loan", loanAmt.getText(), formatter.format(date) };
-
-        model.addRow(tblData);
-    }// GEN-LAST:event_btnLoanActionPerformed
+    // Method for updating balance in the database
+    public void updateBal(Double bal) {
+        try {
+            con = obj.getConnection();
+            insert = con
+                    .prepareStatement(
+                            "UPDATE tblaccount SET balance = COALESCE(balance, 0.00) + ? WHERE accountNum = ?"); // Set
+                                                                                                                 // the
+                                                                                                                 // balance
+                                                                                                                 // to
+                                                                                                                 // 0.00
+                                                                                                                 // if
+                                                                                                                 // it
+                                                                                                                 // is
+                                                                                                                 // NULL
+            insert.setString(1, String.valueOf(bal));
+            insert.setString(2, Records.getAccountNum());
+            insert.executeUpdate();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Database error: " + ex.getMessage());
+        } finally {
+            dbConnection.closeConnection();
+        }
+    }
 
     private void btnDarkActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnDarkActionPerformed
 

@@ -347,7 +347,6 @@ public class SignupForm extends javax.swing.JFrame {
             insert.setString(10, province);
             insert.setInt(11, zipCode);
             insert.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Record Added!"); // For testing
             new HomeInterface(darkEnabled).setVisible(true);
         } catch (SQLException | NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Database error: " + ex.getMessage()); // Display a user-friendly error

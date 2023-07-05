@@ -413,6 +413,7 @@ public class LoginForm extends javax.swing.JFrame {
                     if (pass.equals(userPass) && name.equals(firstName + " " + lastName)) {
                         Records obj = new Records();
                         obj.setName(name); // Pass the full name into the records class
+                        obj.setAccountNum(accountNum); // Pass the account number into the records class
                         dispose();
                         new HomeInterface(darkEnabled).setVisible(true);
                     } else {
