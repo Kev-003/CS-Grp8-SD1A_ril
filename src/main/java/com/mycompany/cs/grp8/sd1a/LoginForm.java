@@ -22,6 +22,7 @@ import java.sql.ResultSet;
 import java.util.Vector;
 import javax.swing.SwingUtilities;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.FontUIResource;
 
 public class LoginForm extends javax.swing.JFrame {
     Connection con = null;
@@ -34,6 +35,11 @@ public class LoginForm extends javax.swing.JFrame {
      * @throws java.io.IOException
      */
     public LoginForm() throws FontFormatException, IOException {
+        UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(loadFonts(0).getFontName(), Font.PLAIN, 16)));
+        UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font(loadFonts(0).getFontName(), Font.PLAIN, 16)));
+        UIManager.put("OptionPane.errorIcon", new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/Warning.png")));
+        UIManager.put("OptionPane.messageForeground", defaultDarkBtnText);
+        UIManager.put("OptionPane.buttonForeground", defaultDarkBtnText);
         initComponents();
     }
 
@@ -369,6 +375,12 @@ public class LoginForm extends javax.swing.JFrame {
         String accNum = txtNum.getText();
         String accName = txtName.getText();
         String accPass = txtPass.getText();
+        
+        if (darkEnabled) {
+            UIManager.put("OptionPane.background", DarkBG);
+        } else {
+            UIManager.put("OptionPane.background", LightBG);
+        }
 
         if (accNum.isBlank() || accName.isBlank() || accPass.isBlank()) {
             javax.swing.JOptionPane.showMessageDialog(null, "Fill up all fields", "Missing Information",
@@ -455,7 +467,7 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtPass;
     // End of variables declaration//GEN-END:variables
 
-    public Font loadFonts(int i) {
+    private Font loadFonts(int i) {
         FontManager fontManager = new FontManager();
 
         // Set the desired font for lblTitle

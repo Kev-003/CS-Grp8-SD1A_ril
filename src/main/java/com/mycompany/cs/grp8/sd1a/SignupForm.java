@@ -25,15 +25,22 @@ import javax.swing.LookAndFeel;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.FontUIResource;
 import res.fonts.FontManager;
 
 public class SignupForm extends javax.swing.JFrame {
+    
     MainFeatures pnlFeatures = new MainFeatures();
 
     /**
      * Creates new form SignupForm
      */
     public SignupForm() {
+        UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(loadFonts(0).getFontName(), Font.PLAIN, 16)));
+        UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font(loadFonts(0).getFontName(), Font.PLAIN, 16)));
+        UIManager.put("OptionPane.errorIcon", new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/Warning.png")));
+        UIManager.put("OptionPane.messageForeground", defaultDarkBtnText);
+        UIManager.put("OptionPane.buttonForeground", defaultDarkBtnText);
         initComponents();
     }
 
@@ -288,6 +295,12 @@ public class SignupForm extends javax.swing.JFrame {
 
     private void btnSignup1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSignup1ActionPerformed
         String accNum = txtNum2.getText();
+        
+        if (darkEnabled) {
+            UIManager.put("OptionPane.background", DarkBG);
+        } else {
+            UIManager.put("OptionPane.background", LightBG);
+        }
 
         if (!isIntegerFormat(accNum)) {
             javax.swing.JOptionPane.showMessageDialog(null, "Enter a valid account number.", "Invalid Account Number",
@@ -508,7 +521,7 @@ public class SignupForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtZip1;
     // End of variables declaration//GEN-END:variables
 
-    public Font loadFonts(int i) {
+    private Font loadFonts(int i) {
         FontManager fontManager = new FontManager();
 
         // Set the desired font for lblTitle
