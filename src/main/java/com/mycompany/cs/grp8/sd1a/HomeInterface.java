@@ -487,6 +487,11 @@ public class HomeInterface extends javax.swing.JFrame {
 
         btnSend.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/SendMoney.png"))); // NOI18N
         btnSend.setBorderPainted(false);
+        btnSend.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSendActionPerformed(evt);
+            }
+        });
         pnlTransac.add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 30, 30));
 
         pnlDashboard.add(pnlTransac, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 450, 130));
@@ -594,6 +599,10 @@ public class HomeInterface extends javax.swing.JFrame {
     private void pnlAcctMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAcctMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_pnlAcctMouseClicked
+
+    private void btnSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSendActionPerformed
 
     private void btnSendMoneyActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSendMoneyActionPerformed
 
