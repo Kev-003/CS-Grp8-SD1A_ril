@@ -29,6 +29,7 @@ import java.sql.ResultSet;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Vector;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.plaf.FontUIResource;
@@ -277,6 +278,11 @@ public class HomeInterface extends javax.swing.JFrame {
         btnLoan.setBorderPainted(false);
         btnLoan.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnLoan.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnLoan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoanActionPerformed(evt);
+            }
+        });
         pnlTransactions.add(btnLoan, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, -1, 70));
 
         btnBills.setFont(new Font(loadFonts(9).getFontName(),Font.PLAIN,16));
@@ -286,6 +292,11 @@ public class HomeInterface extends javax.swing.JFrame {
         btnBills.setBorderPainted(false);
         btnBills.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnBills.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBills.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBillsActionPerformed(evt);
+            }
+        });
         pnlTransactions.add(btnBills, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, 70));
 
         btnCashIn.setFont(new Font(loadFonts(9).getFontName(),Font.PLAIN,16));
@@ -322,15 +333,23 @@ public class HomeInterface extends javax.swing.JFrame {
         jTable1.setForeground(grayLightText);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Transaction Type", "Amount", "Date"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable1.setOpaque(false);
         jScrollPane1.setViewportView(jTable1);
 
@@ -563,6 +582,44 @@ public class HomeInterface extends javax.swing.JFrame {
         };
         JOptionPane.showConfirmDialog(null, message, "Cash In", JOptionPane.DEFAULT_OPTION);
     }//GEN-LAST:event_btnCashInActionPerformed
+
+    private void btnBillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBillsActionPerformed
+        // TODO add your handling code here:
+        
+           if (darkEnabled) {
+            UIManager.put("OptionPane.background", DarkBG);
+        } else {
+            UIManager.put("OptionPane.background", LightBG);
+        }
+        JComboBox billPay = new JComboBox();
+        billPay.addItem("Electricity");
+        billPay.addItem("Water");
+        billPay.addItem("Internet");
+        
+        JTextField amt = new JTextField();
+        Object[] message = {
+            "Recipient:", billPay,
+            "Amount:", amt
+        };
+        JOptionPane.showConfirmDialog(null, message, "Pay Bills", JOptionPane.DEFAULT_OPTION);
+    }//GEN-LAST:event_btnBillsActionPerformed
+
+    private void btnLoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoanActionPerformed
+        // TODO add your handling code here:
+        
+          if (darkEnabled) {
+            UIManager.put("OptionPane.background", DarkBG);
+        } else {
+            UIManager.put("OptionPane.background", LightBG);
+        }
+        
+        JTextField loanAmt = new JTextField();
+        Object[] message = {
+            "Amount to be loaned:", loanAmt
+        };
+        JOptionPane.showConfirmDialog(null, message, "Request a Loan", JOptionPane.DEFAULT_OPTION);
+              
+    }//GEN-LAST:event_btnLoanActionPerformed
 
     private void btnDarkActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnDarkActionPerformed
 
