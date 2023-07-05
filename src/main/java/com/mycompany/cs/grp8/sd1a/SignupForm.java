@@ -347,12 +347,11 @@ public class SignupForm extends javax.swing.JFrame {
             insert.setString(10, province);
             insert.setInt(11, zipCode);
             insert.executeUpdate();
-            new HomeInterface(darkEnabled).setVisible(true);
+            JOptionPane.showMessageDialog(this, "Registered successfully");
+            dispose();
         } catch (SQLException | NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Database error: " + ex.getMessage()); // Display a user-friendly error
                                                                                        // message
-        } catch (FontFormatException | IOException ex) {
-            JOptionPane.showMessageDialog(this, "Resource error: " + ex.getMessage());
         } finally {
             dbConnection.closeConnection(); // Terminate connection
         }

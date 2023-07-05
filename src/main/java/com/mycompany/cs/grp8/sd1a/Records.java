@@ -42,11 +42,11 @@ public class Records {
             con = obj.getConnection();
             insert = con.prepareStatement("SELECT balance FROM tblaccount WHERE accountNum = ?");
             insert.setString(1, accountNum);
-            ResultSet rs = insert.executeQuery();
-            if (rs.next()) {
+            ResultSet result = insert.executeQuery();
+            if (result.next()) {
                 // Check if the balance column is not null
-                if (rs.getObject("balance") != null) {
-                    balance = rs.getDouble("balance");
+                if (result.getObject("balance") != null) {
+                    balance = result.getDouble("balance");
                 } else {
                     // Handle the case when balance is null
                     balance = 0.00; // Set balance to 0
