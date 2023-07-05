@@ -29,16 +29,19 @@ import javax.swing.plaf.FontUIResource;
 import res.fonts.FontManager;
 
 public class SignupForm extends javax.swing.JFrame {
-    
+
     MainFeatures pnlFeatures = new MainFeatures();
 
     /**
      * Creates new form SignupForm
      */
     public SignupForm() {
-        UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(loadFonts(0).getFontName(), Font.PLAIN, 16)));
-        UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font(loadFonts(0).getFontName(), Font.PLAIN, 16)));
-        UIManager.put("OptionPane.errorIcon", new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/Warning.png")));
+        UIManager.put("OptionPane.messageFont",
+                new FontUIResource(new Font(loadFonts(0).getFontName(), Font.PLAIN, 16)));
+        UIManager.put("OptionPane.buttonFont",
+                new FontUIResource(new Font(loadFonts(0).getFontName(), Font.PLAIN, 16)));
+        UIManager.put("OptionPane.errorIcon",
+                new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/Warning.png")));
         UIManager.put("OptionPane.messageForeground", defaultDarkBtnText);
         UIManager.put("OptionPane.buttonForeground", defaultDarkBtnText);
         initComponents();
@@ -295,7 +298,7 @@ public class SignupForm extends javax.swing.JFrame {
 
     private void btnSignup1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSignup1ActionPerformed
         String accNum = txtNum2.getText();
-        
+
         if (darkEnabled) {
             UIManager.put("OptionPane.background", DarkBG);
         } else {
@@ -327,7 +330,6 @@ public class SignupForm extends javax.swing.JFrame {
             String city = txtCity1.getText();
             String province = txtProvince1.getText();
             int zipCode = Integer.parseInt(txtZip1.getText());
-
             insert = con.prepareStatement(
                     "insert into tblaccount(accountNum,userPass,firstName,lastName,birthDate,bldgNo,street,baranggay,city,province,zipCode)values(?,?,?,?,?,?,?,?,?,?,?)");
             insert.setString(1, accountNum);

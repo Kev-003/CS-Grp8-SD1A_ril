@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import java.awt.event.ItemEvent;
 import javax.swing.BorderFactory;
@@ -15,17 +17,14 @@ import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatDarkLaf;
 import res.fonts.FontManager;
 import java.sql.Connection;
-import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
-import java.util.Vector;
 import javax.swing.SwingUtilities;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.FontUIResource;
 
 public class LoginForm extends javax.swing.JFrame {
-    Connection con = null;
     MainFeatures pnlFeatures = new MainFeatures();
 
     /**
@@ -35,13 +34,21 @@ public class LoginForm extends javax.swing.JFrame {
      * @throws java.io.IOException
      */
     public LoginForm() throws FontFormatException, IOException {
-        UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(loadFonts(0).getFontName(), Font.PLAIN, 16)));
-        UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font(loadFonts(0).getFontName(), Font.PLAIN, 16)));
-        UIManager.put("OptionPane.errorIcon", new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/Warning.png")));
+        UIManager.put("OptionPane.messageFont",
+                new FontUIResource(new Font(loadFonts(0).getFontName(), Font.PLAIN, 16)));
+        UIManager.put("OptionPane.buttonFont",
+                new FontUIResource(new Font(loadFonts(0).getFontName(), Font.PLAIN, 16)));
+        UIManager.put("OptionPane.errorIcon",
+                new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cs/grp8/res/images/Warning.png")));
         UIManager.put("OptionPane.messageForeground", defaultDarkBtnText);
         UIManager.put("OptionPane.buttonForeground", defaultDarkBtnText);
         initComponents();
     }
+
+    // Variables used for SQL coonnection
+    Connection con;
+    PreparedStatement insert;
+    dbConnection obj = new dbConnection();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -375,7 +382,7 @@ public class LoginForm extends javax.swing.JFrame {
         String accNum = txtNum.getText();
         String accName = txtName.getText();
         String accPass = txtPass.getText();
-        
+
         if (darkEnabled) {
             UIManager.put("OptionPane.background", DarkBG);
         } else {
@@ -389,8 +396,33 @@ public class LoginForm extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(null, "Enter a valid account number.", "Invalid Account Number",
                     javax.swing.JOptionPane.ERROR_MESSAGE);
         } else {
-            dispose();
-            new HomeInterface(darkEnabled).setVisible(true);
+            try {
+                con = obj.getConnection();
+                String accountNum = txtNum.getText();
+                String pass = String.valueOf(txtPass.getPassword());
+                String name = txtName.getText();
+                // Find a match for the account number given
+                String findUser = ("SELECT * FROM tblaccount WHERE accountNum LIKE '%" + accountNum + "%'");
+                PreparedStatement user = con.prepareStatement(findUser);
+                ResultSet result = user.executeQuery();
+                if (result.next()) { // Search the rows with values
+                    String userPass = result.getString("userPass"); // Obtain the password on the same row
+                    String firstName = result.getString("firstName"); // Obtain the first name on the same row
+                    String lastName = result.getString("lastName"); // Obtain the password on the same row
+                    if (pass.equals(userPass) && name.equals(firstName + " " + lastName)) {
+                        dispose();
+                        new HomeInterface(darkEnabled).setVisible(true);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Password do not match");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Account not found");
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage());
+            } finally {
+                dbConnection.closeConnection(); // Terminate database connection
+            }
         }
 
     }// GEN-LAST:event_btnLoginActionPerformed
