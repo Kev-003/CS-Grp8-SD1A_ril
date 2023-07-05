@@ -1,7 +1,7 @@
 package com.mycompany.cs.grp8.sd1a;
 
 public class Records {
-    private String name;
+    private static String name;
 
     // Setters
     public void setName(String nameValue) {
@@ -9,7 +9,7 @@ public class Records {
     }
 
     // Getters
-    public String getName() {
+    public static String getName() {
         return name;
     }
 }

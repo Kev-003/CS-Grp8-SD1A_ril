@@ -80,8 +80,7 @@ public class HomeInterface extends javax.swing.JFrame {
 
         rndmEvtNotif();
 
-        Records obj = new Records();
-        lblUser.setText(obj.getName());
+        lblUser.setText(Records.getName()); // Use class reference to invoke the getter method in Records class
     }
 
     /**
