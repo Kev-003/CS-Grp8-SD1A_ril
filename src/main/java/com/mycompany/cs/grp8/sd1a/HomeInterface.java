@@ -23,16 +23,23 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import java.sql.Connection;
 import com.mysql.cj.jdbc.result.ResultSetMetaData;
+import java.awt.Desktop;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Vector;
+import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 import javax.swing.plaf.FontUIResource;
+import javax.swing.table.DefaultTableModel;
 
 public class HomeInterface extends javax.swing.JFrame {
 
@@ -44,7 +51,6 @@ public class HomeInterface extends javax.swing.JFrame {
      * Creates new form HomeInterface
      *
      * @param darkEnabled
-     * @param acctNo
      * @throws java.awt.FontFormatException
      * @throws java.io.IOException
      */
@@ -59,12 +65,16 @@ public class HomeInterface extends javax.swing.JFrame {
         UIManager.put("OptionPane.buttonForeground", defaultDarkBtnText);
 
         initComponents();
-
+        model = (javax.swing.table.DefaultTableModel) tblHistory.getModel();
+        tblModel = (javax.swing.table.DefaultTableModel) tblNotif.getModel();
+        
         if (darkEnabled) {
             setToDark();
         } else {
             setToLight();
         }
+        
+        rndmEvtNotif();
     }
 
     /**
@@ -95,11 +105,11 @@ public class HomeInterface extends javax.swing.JFrame {
         btnCashIn = new javax.swing.JButton();
         btnSendMoney = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblHistory = new javax.swing.JTable();
         pnlInbox = new javax.swing.JPanel();
         lblTransactions1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblNotif = new javax.swing.JTable();
         pnlDashboard = new javax.swing.JPanel();
         pnlCard = new javax.swing.JPanel();
         lblBalance = new javax.swing.JLabel();
@@ -329,14 +339,12 @@ public class HomeInterface extends javax.swing.JFrame {
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        jTable1.setFont(new Font(loadFonts(20).getFontName(),Font.BOLD,16));
-        jTable1.setForeground(grayLightText);
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblHistory.setBackground(LightBG);
+        tblHistory.setFont(new Font(loadFonts(20).getFontName(),Font.BOLD,16));
+        tblHistory.setForeground(grayLightText);
+        tblHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Transaction Type", "Amount", "Date"
@@ -350,8 +358,10 @@ public class HomeInterface extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setOpaque(false);
-        jScrollPane1.setViewportView(jTable1);
+        tblHistory.setOpaque(false);
+        tblHistory.setSelectionBackground(hoverLightTextCol);
+        tblHistory.setSelectionForeground(defaultDarkText);
+        jScrollPane1.setViewportView(tblHistory);
 
         pnlTransactions.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, 370));
 
@@ -368,25 +378,36 @@ public class HomeInterface extends javax.swing.JFrame {
         lblTransactions1.setText("Notifications");
         pnlInbox.add(lblTransactions1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 380, 60));
 
+        jScrollPane2.setBackground(LightBG);
+        jScrollPane2.setBorder(null);
+        jScrollPane2.setForeground(hoverLightTextCol);
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        jTable2.setFont(new Font(loadFonts(20).getFontName(),Font.BOLD,16));
-        jTable2.setForeground(grayLightText);
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblNotif.setBackground(LightBG);
+        tblNotif.setFont(new Font(loadFonts(20).getFontName(),Font.BOLD,16));
+        tblNotif.setForeground(grayLightText);
+        tblNotif.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                ""
             }
-        ));
-        jTable2.setOpaque(false);
-        jScrollPane2.setViewportView(jTable2);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
 
-        pnlInbox.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, 540));
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblNotif.setOpaque(false);
+        tblNotif.setSelectionBackground(hoverLightTextCol);
+        tblNotif.setSelectionForeground(defaultDarkText);
+        jScrollPane2.setViewportView(tblNotif);
+
+        pnlInbox.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, 550));
 
         pnlMain.add(pnlInbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 520, 680));
 
@@ -554,7 +575,7 @@ public class HomeInterface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSendMoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendMoneyActionPerformed
-        
+
         if (darkEnabled) {
             UIManager.put("OptionPane.background", DarkBG);
         } else {
@@ -567,6 +588,14 @@ public class HomeInterface extends javax.swing.JFrame {
             "Amount:", amt
         };
         JOptionPane.showConfirmDialog(null, message, "Send Money", JOptionPane.DEFAULT_OPTION);
+
+        Date date = new Date();
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+
+        Object[] tblData = {"Send Money", amt.getText(), formatter.format(date)};
+
+        model.addRow(tblData);
     }//GEN-LAST:event_btnSendMoneyActionPerformed
 
     private void btnCashInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCashInActionPerformed
@@ -575,18 +604,26 @@ public class HomeInterface extends javax.swing.JFrame {
         } else {
             UIManager.put("OptionPane.background", LightBG);
         }
-        
+
         JTextField amt = new JTextField();
         Object[] message = {
             "Amount:", amt
         };
         JOptionPane.showConfirmDialog(null, message, "Cash In", JOptionPane.DEFAULT_OPTION);
+        
+        Date date = new Date();
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-mm-yyyy");
+        
+        Object[] tblData = {"Cash In",amt.getText(), formatter.format(date)};
+        
+        model.addRow(tblData);
     }//GEN-LAST:event_btnCashInActionPerformed
 
     private void btnBillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBillsActionPerformed
         // TODO add your handling code here:
-        
-           if (darkEnabled) {
+
+        if (darkEnabled) {
             UIManager.put("OptionPane.background", DarkBG);
         } else {
             UIManager.put("OptionPane.background", LightBG);
@@ -595,30 +632,45 @@ public class HomeInterface extends javax.swing.JFrame {
         billPay.addItem("Electricity");
         billPay.addItem("Water");
         billPay.addItem("Internet");
-        
+
         JTextField amt = new JTextField();
         Object[] message = {
             "Recipient:", billPay,
             "Amount:", amt
         };
         JOptionPane.showConfirmDialog(null, message, "Pay Bills", JOptionPane.DEFAULT_OPTION);
+        
+        Date date = new Date();
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-mm-yyyy");
+        
+        Object[] tblData = {"Bills",amt.getText(), formatter.format(date)};
+        
+        model.addRow(tblData);
     }//GEN-LAST:event_btnBillsActionPerformed
 
     private void btnLoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoanActionPerformed
         // TODO add your handling code here:
-        
-          if (darkEnabled) {
+
+        if (darkEnabled) {
             UIManager.put("OptionPane.background", DarkBG);
         } else {
             UIManager.put("OptionPane.background", LightBG);
         }
-        
+
         JTextField loanAmt = new JTextField();
         Object[] message = {
             "Amount to be loaned:", loanAmt
         };
         JOptionPane.showConfirmDialog(null, message, "Request a Loan", JOptionPane.DEFAULT_OPTION);
-              
+        
+        Date date = new Date();
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-mm-yyyy");
+        
+        Object[] tblData = {"Loan",loanAmt.getText(), formatter.format(date)};
+        
+        model.addRow(tblData);
     }//GEN-LAST:event_btnLoanActionPerformed
 
     private void btnDarkActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnDarkActionPerformed
@@ -711,10 +763,17 @@ public class HomeInterface extends javax.swing.JFrame {
             pnlTransactions.setVisible(false);
             pnlInbox.setVisible(true);
         } else if (evt.getSource().equals(rbtnHelp)) {
-            pnlDashboard.setVisible(false);
-            pnlTransactions.setVisible(false);
-            pnlInbox.setVisible(false);
+            try {
 
+                String url = "https://kevern920.wixsite.com/shadifintech";
+
+                Desktop dt = Desktop.getDesktop();
+                URI uri = new URI(url);
+                dt.browse(uri.resolve(uri));
+
+            } catch (URISyntaxException | IOException ex) {
+                Logger.getLogger(HomeInterface.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 
@@ -740,6 +799,8 @@ public class HomeInterface extends javax.swing.JFrame {
             lblQuickTransac.setForeground(defaultDarkText);
             roundPanel3.setColor(panelDarkCol);
             lblLastTransac.setForeground(defaultDarkText);
+
+            tblNotif.setBackground(DarkBG);
 
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
@@ -769,6 +830,8 @@ public class HomeInterface extends javax.swing.JFrame {
             roundPanel3.setColor(panelLightCol);
             lblLastTransac.setForeground(defaultLightText);
 
+            tblNotif.setBackground(LightBG);
+
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -776,6 +839,36 @@ public class HomeInterface extends javax.swing.JFrame {
 
     public boolean getPreviousFrameColor(boolean isDarkModeEnabled) {
         return isDarkModeEnabled;
+    }
+
+    private void rndmEvtNotif() {
+        Object[] billNotif = new Object [1];
+        Object[] bill = {"Electricity Bill due in", "Water Bill due in", "Internet Service Bill due in"};
+        
+
+        Timer timer = new Timer(5000, e -> {
+            int rng = ThreadLocalRandom.current().nextInt(1, 6);
+            if (rng == 4) {
+                int currentIndex = ThreadLocalRandom.current().nextInt(0, 3);
+                int days = ThreadLocalRandom.current().nextInt(1, 14);
+                switch (currentIndex) {
+                    case 0 -> billNotif[0] = bill[0] + " " + days + " day/s.";
+                    case 1 -> billNotif[0] = bill[1] + " " + days + " day/s.";
+                    case 2 -> billNotif[0] = bill[2] + " " + days + " day/s.";
+                    default -> {
+                    }
+                }
+                tblModel.addRow(billNotif);
+            } else {
+                // Handle other cases if needed
+            }
+
+        });
+
+        timer.setInitialDelay(0);
+        timer.start();
+
+        
     }
 
     private final Color defaultLightBtnCol = new Color(51, 57, 140);
@@ -800,6 +893,9 @@ public class HomeInterface extends javax.swing.JFrame {
     private final Color panelDarkCol = new Color(60, 60, 60);
 
     public boolean darkEnabled;
+    
+    private final DefaultTableModel model;
+    private final DefaultTableModel tblModel;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBills;
@@ -816,8 +912,6 @@ public class HomeInterface extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JLabel lblAccount;
     private javax.swing.JLabel lblAmount;
     private javax.swing.JLabel lblAmount2;
@@ -846,6 +940,8 @@ public class HomeInterface extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbtnHelp;
     private javax.swing.JRadioButton rbtnInbox;
     private javax.swing.JRadioButton rbtnTransac;
+    private javax.swing.JTable tblHistory;
+    private javax.swing.JTable tblNotif;
     private javax.swing.JTextField txtNum;
     private javax.swing.JTextField txtNum1;
     // End of variables declaration//GEN-END:variables
